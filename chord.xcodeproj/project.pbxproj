@@ -14,9 +14,10 @@
 		2746B0351BA52B5A00B4D364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */; };
 		2746B0401BA52B5A00B4D364 /* chordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B03F1BA52B5A00B4D364 /* chordTests.swift */; };
 		2746B04B1BA52B5A00B4D364 /* chordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B04A1BA52B5A00B4D364 /* chordUITests.swift */; };
-		2746B0591BA52BE600B4D364 /* Ranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B0581BA52BE600B4D364 /* Ranger.swift */; settings = {ASSET_TAGS = (); }; };
+		2746B0591BA52BE600B4D364 /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B0581BA52BE600B4D364 /* Radar.swift */; };
 		2746B05B1BA52CAF00B4D364 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */; };
 		2746B05D1BA52CB700B4D364 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05C1BA52CB700B4D364 /* CoreLocation.framework */; };
+		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +51,10 @@
 		2746B0461BA52B5A00B4D364 /* chordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2746B04A1BA52B5A00B4D364 /* chordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chordUITests.swift; sourceTree = "<group>"; };
 		2746B04C1BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2746B0581BA52BE600B4D364 /* Ranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranger.swift; sourceTree = "<group>"; };
+		2746B0581BA52BE600B4D364 /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2746B05C1BA52CB700B4D364 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,8 @@
 				2746B0311BA52B5A00B4D364 /* Assets.xcassets */,
 				2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */,
 				2746B0361BA52B5A00B4D364 /* Info.plist */,
-				2746B0581BA52BE600B4D364 /* Ranger.swift */,
+				2746B0581BA52BE600B4D364 /* Radar.swift */,
+				27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */,
 			);
 			path = chord;
 			sourceTree = "<group>";
@@ -268,7 +271,8 @@
 			files = (
 				2746B02D1BA52B5A00B4D364 /* ViewController.swift in Sources */,
 				2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */,
-				2746B0591BA52BE600B4D364 /* Ranger.swift in Sources */,
+				2746B0591BA52BE600B4D364 /* Radar.swift in Sources */,
+				27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

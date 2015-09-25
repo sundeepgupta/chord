@@ -1,46 +1,39 @@
-//
-//  AppDelegate.swift
-//  chord
-//
-//  Created by Sundeep Gupta on 2015-09-12.
-//  Copyright © 2015 Sundeep Gupta. All rights reserved.
-//
-
 import UIKit
+import CoreBluetooth
+import CoreLocation
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-
+    var radar: Radar!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.setupRadar()
+        
         return true
     }
-
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    
+    // MARK: - Private
+    private func setupRadar() {
+        let uuid = "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"  // Long USB April Brother
+        //        let uuid = "19d5f76a-fd04-5aa3-b16e-e93277163af6"  // Short USB
+        //        let uuid = "D28228BA-EB75-4CB6-8EEF-4C0C8590804A"  // White discs
+        let region = self.regionWithUuid(uuid)
+        
+        let locationManager = CLLocationManager()
+        
+        self.radar = Radar(locationManager: locationManager, region: region, responder: RadarResponder())
+        self.radar.start()
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    private func regionWithUuid(uuid: String) -> CLBeaconRegion {
+        guard let UUID = NSUUID(UUIDString: uuid) else { fatalError("Invalid UUID") }
+        
+        let region = CLBeaconRegion(proximityUUID: UUID, identifier: "Chord App")
+        region.notifyEntryStateOnDisplay = true
+        return region
     }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
