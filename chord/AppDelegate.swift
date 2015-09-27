@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        let uuid = "19d5f76a-fd04-5aa3-b16e-e93277163af6"  // Short USB
         //        let uuid = "D28228BA-EB75-4CB6-8EEF-4C0C8590804A"  // White discs
         
-        self.radar = RadarFactory.radar(uuid)
+        guard let radar = RadarFactory.radar(uuid) else {
+            print("Failed to create radar.")
+            return
+        }
+
+        self.radar = radar
         self.radar.start()
     }
 }

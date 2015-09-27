@@ -12,8 +12,7 @@
 		2746B0301BA52B5A00B4D364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B02E1BA52B5A00B4D364 /* Main.storyboard */; };
 		2746B0321BA52B5A00B4D364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0311BA52B5A00B4D364 /* Assets.xcassets */; };
 		2746B0351BA52B5A00B4D364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */; };
-		2746B0401BA52B5A00B4D364 /* chordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B03F1BA52B5A00B4D364 /* chordTests.swift */; };
-		2746B04B1BA52B5A00B4D364 /* chordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B04A1BA52B5A00B4D364 /* chordUITests.swift */; };
+		2746B0401BA52B5A00B4D364 /* RadarFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */; };
 		2746B0591BA52BE600B4D364 /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B0581BA52BE600B4D364 /* Radar.swift */; };
 		2746B05B1BA52CAF00B4D364 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */; };
 		2746B05D1BA52CB700B4D364 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05C1BA52CB700B4D364 /* CoreLocation.framework */; };
@@ -23,13 +22,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		2746B03C1BA52B5A00B4D364 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2746B01F1BA52B5A00B4D364 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2746B0261BA52B5A00B4D364;
-			remoteInfo = chord;
-		};
-		2746B0471BA52B5A00B4D364 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2746B01F1BA52B5A00B4D364 /* Project object */;
 			proxyType = 1;
@@ -47,10 +39,8 @@
 		2746B0341BA52B5A00B4D364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2746B0361BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2746B03B1BA52B5A00B4D364 /* chordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2746B03F1BA52B5A00B4D364 /* chordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chordTests.swift; sourceTree = "<group>"; };
+		2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarFactoryTests.swift; sourceTree = "<group>"; };
 		2746B0411BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2746B0461BA52B5A00B4D364 /* chordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chordUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2746B04A1BA52B5A00B4D364 /* chordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chordUITests.swift; sourceTree = "<group>"; };
 		2746B04C1BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2746B0581BA52BE600B4D364 /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -76,24 +66,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2746B0431BA52B5A00B4D364 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2746B01E1BA52B5A00B4D364 = {
 			isa = PBXGroup;
 			children = (
-				2746B05C1BA52CB700B4D364 /* CoreLocation.framework */,
-				2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */,
 				2746B0291BA52B5A00B4D364 /* chord */,
 				2746B03E1BA52B5A00B4D364 /* chordTests */,
 				2746B0491BA52B5A00B4D364 /* chordUITests */,
+				27FF88851BB77EF700D86C99 /* Frameworks */,
 				2746B0281BA52B5A00B4D364 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,7 +85,6 @@
 			children = (
 				2746B0271BA52B5A00B4D364 /* chord.app */,
 				2746B03B1BA52B5A00B4D364 /* chordTests.xctest */,
-				2746B0461BA52B5A00B4D364 /* chordUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,7 +108,7 @@
 		2746B03E1BA52B5A00B4D364 /* chordTests */ = {
 			isa = PBXGroup;
 			children = (
-				2746B03F1BA52B5A00B4D364 /* chordTests.swift */,
+				2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */,
 				2746B0411BA52B5A00B4D364 /* Info.plist */,
 			);
 			path = chordTests;
@@ -136,10 +117,18 @@
 		2746B0491BA52B5A00B4D364 /* chordUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2746B04A1BA52B5A00B4D364 /* chordUITests.swift */,
 				2746B04C1BA52B5A00B4D364 /* Info.plist */,
 			);
 			path = chordUITests;
+			sourceTree = "<group>";
+		};
+		27FF88851BB77EF700D86C99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2746B05C1BA52CB700B4D364 /* CoreLocation.framework */,
+				2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,24 +169,6 @@
 			productReference = 2746B03B1BA52B5A00B4D364 /* chordTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2746B0451BA52B5A00B4D364 /* chordUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2746B0551BA52B5A00B4D364 /* Build configuration list for PBXNativeTarget "chordUITests" */;
-			buildPhases = (
-				2746B0421BA52B5A00B4D364 /* Sources */,
-				2746B0431BA52B5A00B4D364 /* Frameworks */,
-				2746B0441BA52B5A00B4D364 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2746B0481BA52B5A00B4D364 /* PBXTargetDependency */,
-			);
-			name = chordUITests;
-			productName = chordUITests;
-			productReference = 2746B0461BA52B5A00B4D364 /* chordUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -211,10 +182,6 @@
 						CreatedOnToolsVersion = 7.0;
 					};
 					2746B03A1BA52B5A00B4D364 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 2746B0261BA52B5A00B4D364;
-					};
-					2746B0451BA52B5A00B4D364 = {
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 2746B0261BA52B5A00B4D364;
 					};
@@ -235,7 +202,6 @@
 			targets = (
 				2746B0261BA52B5A00B4D364 /* chord */,
 				2746B03A1BA52B5A00B4D364 /* chordTests */,
-				2746B0451BA52B5A00B4D364 /* chordUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,13 +218,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2746B0391BA52B5A00B4D364 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2746B0441BA52B5A00B4D364 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,15 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2746B0401BA52B5A00B4D364 /* chordTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2746B0421BA52B5A00B4D364 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2746B04B1BA52B5A00B4D364 /* chordUITests.swift in Sources */,
+				2746B0401BA52B5A00B4D364 /* RadarFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,11 +254,6 @@
 			isa = PBXTargetDependency;
 			target = 2746B0261BA52B5A00B4D364 /* chord */;
 			targetProxy = 2746B03C1BA52B5A00B4D364 /* PBXContainerItemProxy */;
-		};
-		2746B0481BA52B5A00B4D364 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2746B0261BA52B5A00B4D364 /* chord */;
-			targetProxy = 2746B0471BA52B5A00B4D364 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -458,30 +404,6 @@
 			};
 			name = Release;
 		};
-		2746B0561BA52B5A00B4D364 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = chordUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sundeepgupta.chordUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = chord;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		2746B0571BA52B5A00B4D364 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = chordUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.sundeepgupta.chordUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = chord;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,15 +430,6 @@
 			buildConfigurations = (
 				2746B0531BA52B5A00B4D364 /* Debug */,
 				2746B0541BA52B5A00B4D364 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2746B0551BA52B5A00B4D364 /* Build configuration list for PBXNativeTarget "chordUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2746B0561BA52B5A00B4D364 /* Debug */,
-				2746B0571BA52B5A00B4D364 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
