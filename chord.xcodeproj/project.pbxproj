@@ -16,6 +16,7 @@
 		2746B0591BA52BE600B4D364 /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B0581BA52BE600B4D364 /* Radar.swift */; };
 		2746B05B1BA52CAF00B4D364 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */; };
 		2746B05D1BA52CB700B4D364 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05C1BA52CB700B4D364 /* CoreLocation.framework */; };
+		274E80D31BB855260091CC80 /* RadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D21BB855260091CC80 /* RadarTests.swift */; };
 		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 		27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF88831BB77B9700D86C99 /* RadarFactory.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		2746B0581BA52BE600B4D364 /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2746B05C1BA52CB700B4D364 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		274E80D21BB855260091CC80 /* RadarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarTests.swift; sourceTree = "<group>"; };
 		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 		27FF88831BB77B9700D86C99 /* RadarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 			children = (
 				2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */,
 				2746B0411BA52B5A00B4D364 /* Info.plist */,
+				274E80D21BB855260091CC80 /* RadarTests.swift */,
 			);
 			path = chordTests;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274E80D31BB855260091CC80 /* RadarTests.swift in Sources */,
 				2746B0401BA52B5A00B4D364 /* RadarFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

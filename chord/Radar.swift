@@ -16,12 +16,10 @@ class Radar: NSObject, RadarResponderDelegate {
     func start() {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startMonitoringForRegion(self.region)
-        self.locationManager.startUpdatingLocation()
     }
     
     func stop() {
         self.locationManager.stopMonitoringForRegion(self.region)
-        self.locationManager.stopUpdatingLocation()
     }
     
     
