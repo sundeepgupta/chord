@@ -6,20 +6,15 @@ class Radar: NSObject, RadarResponderDelegate {
     private let region: CLBeaconRegion
     private let responder: RadarResponder
     
+    
     init(locationManager: CLLocationManager, region: CLBeaconRegion, responder: RadarResponder) {
         self.locationManager = locationManager
         self.region = region
         self.responder = responder
-        
-        super.init()
-        
-        self.responder.delegate = self
-        self.locationManager.delegate = responder
-        
-        self.locationManager.requestAlwaysAuthorization()
     }
     
     func start() {
+        self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startMonitoringForRegion(self.region)
         self.locationManager.startUpdatingLocation()
     }
