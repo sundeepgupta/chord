@@ -42,15 +42,28 @@ class RadarResponder_Tests: XCTestCase {
         XCTAssertEqual(self.region, self.locationManager.region)
     }
     
-    
-    // Why do these fail only when testing the entire suite?
     func testUserAuthorizedRanging() {
         self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .AuthorizedAlways)
-        XCTAssertTrue(self.radar.userAuthorized)
+        XCTAssertTrue(self.radar.started)
     }
     
-    func testUserDidNotAuthorizeRanging() {
+    func testUserAuthorizeRangingNotAlways() {
         self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .AuthorizedWhenInUse)
-        XCTAssertTrue(self.radar.userRevoked)
+        XCTAssertTrue(self.radar.stopped)
+    }
+    
+    func testUserDeniedRanging() {
+        self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .Denied)
+        XCTAssertTrue(self.radar.stopped)
+    }
+    
+    func testUserAuthorizeNotDetermined() {
+        self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .NotDetermined)
+        XCTAssertTrue(self.radar.stopped)
+    }
+    
+    func testUserDidNotAuthorizeRestricted() {
+        self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .Restricted)
+        XCTAssertTrue(self.radar.stopped)
     }
 }

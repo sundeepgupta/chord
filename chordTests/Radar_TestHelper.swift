@@ -6,8 +6,6 @@ import CoreBluetooth
 class FakeRadar: Radar {
     var started = false
     var stopped = false
-    var userAuthorized = false
-    var userRevoked = false
     
     static func radar() -> FakeRadar {
         return FakeRadar(locationManager: CLLocationManager(), region: CLBeaconRegion(), responder: RadarResponder())
@@ -19,14 +17,6 @@ class FakeRadar: Radar {
     
     override func stop() {
         self.stopped = true
-    }
-    
-    override func userAuthorizedRanging() {
-        self.userAuthorized = true
-    }
-    
-    override func userRevokedRanging() {
-        self.userRevoked = true
     }
 }
 
