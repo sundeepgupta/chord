@@ -12,11 +12,13 @@
 		2746B0301BA52B5A00B4D364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B02E1BA52B5A00B4D364 /* Main.storyboard */; };
 		2746B0321BA52B5A00B4D364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0311BA52B5A00B4D364 /* Assets.xcassets */; };
 		2746B0351BA52B5A00B4D364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */; };
-		2746B0401BA52B5A00B4D364 /* RadarFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */; };
+		2746B0401BA52B5A00B4D364 /* RadarFactory_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B03F1BA52B5A00B4D364 /* RadarFactory_Tests.swift */; };
 		2746B0591BA52BE600B4D364 /* Radar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B0581BA52BE600B4D364 /* Radar.swift */; };
 		2746B05B1BA52CAF00B4D364 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */; };
 		2746B05D1BA52CB700B4D364 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2746B05C1BA52CB700B4D364 /* CoreLocation.framework */; };
-		274E80D31BB855260091CC80 /* RadarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D21BB855260091CC80 /* RadarTests.swift */; };
+		274E80D31BB855260091CC80 /* Radar_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D21BB855260091CC80 /* Radar_Tests.swift */; };
+		274E80D51BB872F00091CC80 /* RadarResponder_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */; };
+		274E80D91BB8BF9C0091CC80 /* Radar_TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D81BB8BF9C0091CC80 /* Radar_TestHelper.swift */; };
 		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 		27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF88831BB77B9700D86C99 /* RadarFactory.swift */; };
 /* End PBXBuildFile section */
@@ -40,13 +42,14 @@
 		2746B0341BA52B5A00B4D364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2746B0361BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2746B03B1BA52B5A00B4D364 /* chordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarFactoryTests.swift; sourceTree = "<group>"; };
+		2746B03F1BA52B5A00B4D364 /* RadarFactory_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarFactory_Tests.swift; sourceTree = "<group>"; };
 		2746B0411BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2746B04C1BA52B5A00B4D364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2746B0581BA52BE600B4D364 /* Radar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar.swift; sourceTree = "<group>"; };
 		2746B05A1BA52CAF00B4D364 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		2746B05C1BA52CB700B4D364 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		274E80D21BB855260091CC80 /* RadarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarTests.swift; sourceTree = "<group>"; };
+		274E80D21BB855260091CC80 /* Radar_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar_Tests.swift; sourceTree = "<group>"; };
+		274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder_Tests.swift; sourceTree = "<group>"; };
+		274E80D81BB8BF9C0091CC80 /* Radar_TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar_TestHelper.swift; sourceTree = "<group>"; };
 		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 		27FF88831BB77B9700D86C99 /* RadarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +79,6 @@
 			children = (
 				2746B0291BA52B5A00B4D364 /* chord */,
 				2746B03E1BA52B5A00B4D364 /* chordTests */,
-				2746B0491BA52B5A00B4D364 /* chordUITests */,
 				27FF88851BB77EF700D86C99 /* Frameworks */,
 				2746B0281BA52B5A00B4D364 /* Products */,
 			);
@@ -100,9 +102,7 @@
 				2746B0311BA52B5A00B4D364 /* Assets.xcassets */,
 				2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */,
 				2746B0361BA52B5A00B4D364 /* Info.plist */,
-				2746B0581BA52BE600B4D364 /* Radar.swift */,
-				27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */,
-				27FF88831BB77B9700D86C99 /* RadarFactory.swift */,
+				274E80D61BB8BF7A0091CC80 /* Radar */,
 			);
 			path = chord;
 			sourceTree = "<group>";
@@ -110,19 +110,31 @@
 		2746B03E1BA52B5A00B4D364 /* chordTests */ = {
 			isa = PBXGroup;
 			children = (
-				2746B03F1BA52B5A00B4D364 /* RadarFactoryTests.swift */,
+				274E80D71BB8BF810091CC80 /* Radar */,
 				2746B0411BA52B5A00B4D364 /* Info.plist */,
-				274E80D21BB855260091CC80 /* RadarTests.swift */,
 			);
 			path = chordTests;
 			sourceTree = "<group>";
 		};
-		2746B0491BA52B5A00B4D364 /* chordUITests */ = {
+		274E80D61BB8BF7A0091CC80 /* Radar */ = {
 			isa = PBXGroup;
 			children = (
-				2746B04C1BA52B5A00B4D364 /* Info.plist */,
+				2746B0581BA52BE600B4D364 /* Radar.swift */,
+				27FF88831BB77B9700D86C99 /* RadarFactory.swift */,
+				27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */,
 			);
-			path = chordUITests;
+			name = Radar;
+			sourceTree = "<group>";
+		};
+		274E80D71BB8BF810091CC80 /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				274E80D81BB8BF9C0091CC80 /* Radar_TestHelper.swift */,
+				274E80D21BB855260091CC80 /* Radar_Tests.swift */,
+				2746B03F1BA52B5A00B4D364 /* RadarFactory_Tests.swift */,
+				274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */,
+			);
+			name = Radar;
 			sourceTree = "<group>";
 		};
 		27FF88851BB77EF700D86C99 /* Frameworks */ = {
@@ -246,8 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274E80D31BB855260091CC80 /* RadarTests.swift in Sources */,
-				2746B0401BA52B5A00B4D364 /* RadarFactoryTests.swift in Sources */,
+				274E80D31BB855260091CC80 /* Radar_Tests.swift in Sources */,
+				274E80D51BB872F00091CC80 /* RadarResponder_Tests.swift in Sources */,
+				2746B0401BA52B5A00B4D364 /* RadarFactory_Tests.swift in Sources */,
+				274E80D91BB8BF9C0091CC80 /* Radar_TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
