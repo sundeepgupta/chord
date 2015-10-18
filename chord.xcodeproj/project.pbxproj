@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */; };
-		2746B02D1BA52B5A00B4D364 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B02C1BA52B5A00B4D364 /* ViewController.swift */; };
+		2746B02D1BA52B5A00B4D364 /* KidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */; };
 		2746B0301BA52B5A00B4D364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B02E1BA52B5A00B4D364 /* Main.storyboard */; };
 		2746B0321BA52B5A00B4D364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0311BA52B5A00B4D364 /* Assets.xcassets */; };
 		2746B0351BA52B5A00B4D364 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */; };
@@ -19,6 +19,9 @@
 		274E80D31BB855260091CC80 /* Radar_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D21BB855260091CC80 /* Radar_Tests.swift */; };
 		274E80D51BB872F00091CC80 /* RadarResponder_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */; };
 		274E80D91BB8BF9C0091CC80 /* Radar_TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E80D81BB8BF9C0091CC80 /* Radar_TestHelper.swift */; };
+		27783BFB1BD402A200C26D37 /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783BFA1BD402A200C26D37 /* Kid.swift */; settings = {ASSET_TAGS = (); }; };
+		27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783BFD1BD4498900C26D37 /* KidCell.swift */; settings = {ASSET_TAGS = (); }; };
+		27783C011BD451CE00C26D37 /* KidCell_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783C001BD451CE00C26D37 /* KidCell_Tests.swift */; settings = {ASSET_TAGS = (); }; };
 		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 		27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF88831BB77B9700D86C99 /* RadarFactory.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		2746B0271BA52B5A00B4D364 /* chord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2746B02C1BA52B5A00B4D364 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsViewController.swift; sourceTree = "<group>"; };
 		2746B02F1BA52B5A00B4D364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2746B0311BA52B5A00B4D364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2746B0341BA52B5A00B4D364 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +53,9 @@
 		274E80D21BB855260091CC80 /* Radar_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar_Tests.swift; sourceTree = "<group>"; };
 		274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder_Tests.swift; sourceTree = "<group>"; };
 		274E80D81BB8BF9C0091CC80 /* Radar_TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radar_TestHelper.swift; sourceTree = "<group>"; };
+		27783BFA1BD402A200C26D37 /* Kid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
+		27783BFD1BD4498900C26D37 /* KidCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell.swift; sourceTree = "<group>"; };
+		27783C001BD451CE00C26D37 /* KidCell_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell_Tests.swift; sourceTree = "<group>"; };
 		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 		27FF88831BB77B9700D86C99 /* RadarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,8 +102,8 @@
 		2746B0291BA52B5A00B4D364 /* chord */ = {
 			isa = PBXGroup;
 			children = (
+				27783BFC1BD4497500C26D37 /* Kids */,
 				2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */,
-				2746B02C1BA52B5A00B4D364 /* ViewController.swift */,
 				2746B02E1BA52B5A00B4D364 /* Main.storyboard */,
 				2746B0311BA52B5A00B4D364 /* Assets.xcassets */,
 				2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */,
@@ -110,6 +116,7 @@
 		2746B03E1BA52B5A00B4D364 /* chordTests */ = {
 			isa = PBXGroup;
 			children = (
+				27783BFF1BD451BB00C26D37 /* Kids */,
 				274E80D71BB8BF810091CC80 /* Radar */,
 				2746B0411BA52B5A00B4D364 /* Info.plist */,
 			);
@@ -135,6 +142,24 @@
 				274E80D41BB872F00091CC80 /* RadarResponder_Tests.swift */,
 			);
 			name = Radar;
+			sourceTree = "<group>";
+		};
+		27783BFC1BD4497500C26D37 /* Kids */ = {
+			isa = PBXGroup;
+			children = (
+				27783BFA1BD402A200C26D37 /* Kid.swift */,
+				2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */,
+				27783BFD1BD4498900C26D37 /* KidCell.swift */,
+			);
+			name = Kids;
+			sourceTree = "<group>";
+		};
+		27783BFF1BD451BB00C26D37 /* Kids */ = {
+			isa = PBXGroup;
+			children = (
+				27783C001BD451CE00C26D37 /* KidCell_Tests.swift */,
+			);
+			name = Kids;
 			sourceTree = "<group>";
 		};
 		27FF88851BB77EF700D86C99 /* Frameworks */ = {
@@ -246,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2746B02D1BA52B5A00B4D364 /* ViewController.swift in Sources */,
+				2746B02D1BA52B5A00B4D364 /* KidsViewController.swift in Sources */,
+				27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */,
 				2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */,
+				27783BFB1BD402A200C26D37 /* Kid.swift in Sources */,
 				2746B0591BA52BE600B4D364 /* Radar.swift in Sources */,
 				27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */,
 				27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */,
@@ -260,6 +287,7 @@
 			files = (
 				274E80D31BB855260091CC80 /* Radar_Tests.swift in Sources */,
 				274E80D51BB872F00091CC80 /* RadarResponder_Tests.swift in Sources */,
+				27783C011BD451CE00C26D37 /* KidCell_Tests.swift in Sources */,
 				2746B0401BA52B5A00B4D364 /* RadarFactory_Tests.swift in Sources */,
 				274E80D91BB8BF9C0091CC80 /* Radar_TestHelper.swift in Sources */,
 			);

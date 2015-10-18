@@ -35,6 +35,10 @@ class Radar: NSObject, RadarResponderDelegate {
     func rangingFailed(error: NSError) {
         self.stop()
     }
+    
+    func rangedBeacons(beacons: ([CLBeacon])) {
+        
+    }
 }
 
 

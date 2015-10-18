@@ -6,6 +6,7 @@ import CoreBluetooth
 class FakeRadar: Radar {
     var started = false
     var stopped = false
+    var beacons: [CLBeacon] = []
     
     static func radar() -> FakeRadar {
         return FakeRadar(locationManager: CLLocationManager(), region: CLBeaconRegion(), responder: RadarResponder())
@@ -17,6 +18,10 @@ class FakeRadar: Radar {
     
     override func stop() {
         self.stopped = true
+    }
+    
+    override func rangedBeacons(beacons: ([CLBeacon])) {
+        self.beacons = beacons
     }
 }
 

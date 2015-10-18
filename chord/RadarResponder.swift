@@ -5,6 +5,7 @@ protocol RadarResponderDelegate: class {
     func userAuthorizedRanging()
     func userRevokedRanging()
     func rangingFailed(error: NSError)
+    func rangedBeacons(beacons: ([CLBeacon]))
 }
 
 class RadarResponder: NSObject, CLLocationManagerDelegate {
@@ -32,6 +33,7 @@ class RadarResponder: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        self.delegate.rangedBeacons(beacons)
         print("Ranged beacons: \(beacons)")
     }
     

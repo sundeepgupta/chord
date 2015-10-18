@@ -66,4 +66,10 @@ class RadarResponder_Tests: XCTestCase {
         self.subject.locationManager(self.locationManager, didChangeAuthorizationStatus: .Restricted)
         XCTAssertTrue(self.radar.stopped)
     }
+    
+    func testRangedBeacons() {
+        let beacons = [CLBeacon(), CLBeacon()]
+        self.subject.locationManager(self.locationManager, didRangeBeacons: beacons, inRegion: self.region)
+        XCTAssertEqual(self.radar.beacons, beacons)
+    }
 }
