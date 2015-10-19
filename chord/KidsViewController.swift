@@ -1,11 +1,13 @@
 import UIKit
 
-class KidsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class KidsViewController: UIViewController {
     @IBOutlet weak var kidsView: UICollectionView!
     var kids: [Kid]!
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "My Kids"
         
         let kid = Kid(major: 1, minor: 2, name: "test", tracking: true)
         let kid1 = Kid(major: 333, minor: 33, name: "kid1", tracking: false)
@@ -40,8 +42,5 @@ class KidsViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         return cell
     }
-    
-    
-
 }
 
