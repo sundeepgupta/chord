@@ -5,9 +5,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var radar: Radar!
+    
+    var persistenceStack: PersistenceStack!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupRadar()
+        
+        
+        self.persistenceStack = PersistenceStack(modelName: "Chord")
         
         return true
     }

@@ -23,6 +23,8 @@
 		27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783BFD1BD4498900C26D37 /* KidCell.swift */; settings = {ASSET_TAGS = (); }; };
 		27783C011BD451CE00C26D37 /* KidCell_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783C001BD451CE00C26D37 /* KidCell_Tests.swift */; settings = {ASSET_TAGS = (); }; };
 		27783C031BD462BE00C26D37 /* KidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783C021BD462BE00C26D37 /* KidViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		27ADB6BF1BD483AB0062B776 /* PersistenceStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */; settings = {ASSET_TAGS = (); }; };
+		27ADB6C31BD4845E0062B776 /* Chord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27ADB6C11BD4845E0062B776 /* Chord.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 		27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF88831BB77B9700D86C99 /* RadarFactory.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		27783BFD1BD4498900C26D37 /* KidCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell.swift; sourceTree = "<group>"; };
 		27783C001BD451CE00C26D37 /* KidCell_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell_Tests.swift; sourceTree = "<group>"; };
 		27783C021BD462BE00C26D37 /* KidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidViewController.swift; sourceTree = "<group>"; };
+		27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStack.swift; sourceTree = "<group>"; };
+		27ADB6C21BD4845E0062B776 /* Chord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chord.xcdatamodel; sourceTree = "<group>"; };
 		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 		27FF88831BB77B9700D86C99 /* RadarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,13 +108,10 @@
 		2746B0291BA52B5A00B4D364 /* chord */ = {
 			isa = PBXGroup;
 			children = (
+				27ADB6BD1BD483760062B776 /* Core */,
 				27783BFC1BD4497500C26D37 /* Kids */,
-				2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */,
-				2746B02E1BA52B5A00B4D364 /* Main.storyboard */,
-				2746B0311BA52B5A00B4D364 /* Assets.xcassets */,
-				2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */,
-				2746B0361BA52B5A00B4D364 /* Info.plist */,
 				274E80D61BB8BF7A0091CC80 /* Radar */,
+				27ADB6BC1BD483440062B776 /* Resources */,
 			);
 			path = chord;
 			sourceTree = "<group>";
@@ -163,6 +164,35 @@
 				27783C001BD451CE00C26D37 /* KidCell_Tests.swift */,
 			);
 			name = Kids;
+			sourceTree = "<group>";
+		};
+		27ADB6BC1BD483440062B776 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2746B0361BA52B5A00B4D364 /* Info.plist */,
+				2746B0311BA52B5A00B4D364 /* Assets.xcassets */,
+				2746B0331BA52B5A00B4D364 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		27ADB6BD1BD483760062B776 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */,
+				2746B02E1BA52B5A00B4D364 /* Main.storyboard */,
+				27ADB6C01BD484350062B776 /* Data */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		27ADB6C01BD484350062B776 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */,
+				27ADB6C11BD4845E0062B776 /* Chord.xcdatamodeld */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		27FF88851BB77EF700D86C99 /* Frameworks */ = {
@@ -278,10 +308,12 @@
 				27783C031BD462BE00C26D37 /* KidViewController.swift in Sources */,
 				27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */,
 				2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */,
+				27ADB6C31BD4845E0062B776 /* Chord.xcdatamodeld in Sources */,
 				27783BFB1BD402A200C26D37 /* Kid.swift in Sources */,
 				2746B0591BA52BE600B4D364 /* Radar.swift in Sources */,
 				27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */,
 				27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */,
+				27ADB6BF1BD483AB0062B776 /* PersistenceStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +517,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27ADB6C11BD4845E0062B776 /* Chord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27ADB6C21BD4845E0062B776 /* Chord.xcdatamodel */,
+			);
+			currentVersion = 27ADB6C21BD4845E0062B776 /* Chord.xcdatamodel */;
+			path = Chord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2746B01F1BA52B5A00B4D364 /* Project object */;
 }
