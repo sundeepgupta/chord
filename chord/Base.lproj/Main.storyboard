@@ -87,6 +87,7 @@
                                             <outlet property="major" destination="db6-3N-PP6" id="Vkp-Ih-qoI"/>
                                             <outlet property="minor" destination="3u3-zp-He3" id="WSF-UJ-r8t"/>
                                             <outlet property="name" destination="0KX-mD-JLS" id="JkE-Nu-0Kb"/>
+                                            <segue destination="sFT-RI-Elz" kind="show" id="yNd-ta-lU8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -112,6 +113,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1507" y="299"/>
+        </scene>
+        <!--Kid View Controller-->
+        <scene sceneID="Zkb-ZP-WPS">
+            <objects>
+                <viewController id="sFT-RI-Elz" customClass="KidViewController" customModule="chord" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x4s-9c-Ck3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Crf-vC-L0v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lyB-NP-gg7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kid's name..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="25J-ND-dgj">
+                                <rect key="frame" x="20" y="98" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qpk-BZ-0R0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyM-rZ-QWT">
+                                <rect key="frame" x="251" y="151" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="YWO-4d-HcU"/>
+                                    <constraint firstAttribute="width" constant="49" id="mMR-tD-Y6E"/>
+                                </constraints>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep an eye on this kid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ka-Kb-aUn">
+                                <rect key="frame" x="20" y="156" width="223" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="y0k-yQ-lYp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLD-Wf-cu7">
+                                <rect key="frame" x="138" y="430" width="45" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="22L-WB-Xw7"/>
+                                    <constraint firstAttribute="height" constant="30" id="Dmx-58-Q53"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="delete" destination="sFT-RI-Elz" eventType="touchUpInside" id="Vpb-6C-Hpa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JyM-rZ-QWT" firstAttribute="top" secondItem="25J-ND-dgj" secondAttribute="bottom" constant="23" id="83f-Hb-wi5"/>
+                            <constraint firstItem="JyM-rZ-QWT" firstAttribute="leading" secondItem="0Ka-Kb-aUn" secondAttribute="trailing" constant="8" id="LyV-hJ-Pt1"/>
+                            <constraint firstItem="25J-ND-dgj" firstAttribute="leading" secondItem="lyB-NP-gg7" secondAttribute="leading" constant="20" id="Q3b-6F-7C2"/>
+                            <constraint firstAttribute="trailing" secondItem="25J-ND-dgj" secondAttribute="trailing" constant="20" id="cBE-j5-FuV"/>
+                            <constraint firstItem="0Ka-Kb-aUn" firstAttribute="leading" secondItem="lyB-NP-gg7" secondAttribute="leading" constant="20" id="dXZ-hx-F6i"/>
+                            <constraint firstItem="zLD-Wf-cu7" firstAttribute="centerX" secondItem="lyB-NP-gg7" secondAttribute="centerX" id="fDL-Fh-OU9"/>
+                            <constraint firstItem="Crf-vC-L0v" firstAttribute="top" secondItem="zLD-Wf-cu7" secondAttribute="bottom" constant="20" id="lUM-HD-FMf"/>
+                            <constraint firstItem="25J-ND-dgj" firstAttribute="top" secondItem="x4s-9c-Ck3" secondAttribute="bottom" constant="34" id="w9P-4f-BBw"/>
+                            <constraint firstAttribute="trailing" secondItem="JyM-rZ-QWT" secondAttribute="trailing" constant="20" id="xWx-rM-TtN"/>
+                            <constraint firstItem="0Ka-Kb-aUn" firstAttribute="top" secondItem="25J-ND-dgj" secondAttribute="bottom" constant="28" id="zA6-pg-Bni"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="name" destination="25J-ND-dgj" id="5v6-PH-poY"/>
+                        <outlet property="trackingSetting" destination="JyM-rZ-QWT" id="XwA-d1-iV5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="44y-4w-Zys" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1875" y="299"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QCC-qF-0P3">

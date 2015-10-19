@@ -11,6 +11,14 @@ class KidsViewController: UIViewController, UICollectionViewDataSource, UICollec
         let kid1 = Kid(major: 333, minor: 33, name: "kid1", tracking: false)
         self.kids = [kid, kid1]
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UICollectionViewCell
+        guard let indexPath = self.kidsView .indexPathForCell(cell) else { return }
+        
+        let kidViewController = segue.destinationViewController as! KidViewController
+        kidViewController.kid = self.kids[indexPath.item]
+    }
 
     
     //MARK:- UICollectionViewDataSource
@@ -32,6 +40,8 @@ class KidsViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         return cell
     }
+    
+    
 
 }
 

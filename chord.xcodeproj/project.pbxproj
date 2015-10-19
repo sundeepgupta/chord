@@ -22,6 +22,7 @@
 		27783BFB1BD402A200C26D37 /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783BFA1BD402A200C26D37 /* Kid.swift */; settings = {ASSET_TAGS = (); }; };
 		27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783BFD1BD4498900C26D37 /* KidCell.swift */; settings = {ASSET_TAGS = (); }; };
 		27783C011BD451CE00C26D37 /* KidCell_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783C001BD451CE00C26D37 /* KidCell_Tests.swift */; settings = {ASSET_TAGS = (); }; };
+		27783C031BD462BE00C26D37 /* KidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27783C021BD462BE00C26D37 /* KidViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */; };
 		27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FF88831BB77B9700D86C99 /* RadarFactory.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		27783BFA1BD402A200C26D37 /* Kid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
 		27783BFD1BD4498900C26D37 /* KidCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell.swift; sourceTree = "<group>"; };
 		27783C001BD451CE00C26D37 /* KidCell_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidCell_Tests.swift; sourceTree = "<group>"; };
+		27783C021BD462BE00C26D37 /* KidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KidViewController.swift; sourceTree = "<group>"; };
 		27F7C3FE1BB4DB1600687F55 /* RadarResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarResponder.swift; sourceTree = "<group>"; };
 		27FF88831BB77B9700D86C99 /* RadarFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				27783BFA1BD402A200C26D37 /* Kid.swift */,
 				2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */,
 				27783BFD1BD4498900C26D37 /* KidCell.swift */,
+				27783C021BD462BE00C26D37 /* KidViewController.swift */,
 			);
 			name = Kids;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2746B02D1BA52B5A00B4D364 /* KidsViewController.swift in Sources */,
+				27783C031BD462BE00C26D37 /* KidViewController.swift in Sources */,
 				27783BFE1BD4498900C26D37 /* KidCell.swift in Sources */,
 				2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */,
 				27783BFB1BD402A200C26D37 /* Kid.swift in Sources */,
