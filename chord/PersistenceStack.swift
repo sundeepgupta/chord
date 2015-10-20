@@ -11,7 +11,6 @@ class PersistenceStack {
     init(modelName: String) {
         self.modelName = modelName
         
-        
         self.setupObjectModel()
         self.setupStoreCoordinator()
         self.setupContext()
@@ -42,17 +41,11 @@ class PersistenceStack {
         self.context.persistentStoreCoordinator = self.storeCoordinator
     }
     
-    
-    
     private func storeURL() -> NSURL {
         guard let docuementsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last else {
             fatalError("Failed to find documents directory.")
         }
         
         return docuementsURL.URLByAppendingPathComponent(self.modelName + ".sqlite")
-    }
-    
-    private func storeOptions() -> [String: Bool] {
-        return [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
     }
 }

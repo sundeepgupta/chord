@@ -4,10 +4,13 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+
     var radar: Radar!
     
     var persistenceStack: PersistenceStack!
 
+    
+    //MARK:- UIApplicationDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupRadar()
         
@@ -16,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationWillTerminate(application: UIApplication) {
+        // save core data context
+    }
+    
+    
     
     
     // MARK: - Private
