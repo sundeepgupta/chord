@@ -1,49 +1,75 @@
 import UIKit
 import CoreData
 
-class KidsViewController: UIViewController {
+class KidsViewController: UIViewController, KidUpdater, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var kidsView: UICollectionView!
-    var kidsResultsController: NSFetchedResultsController!
+    private var kidsResultsController: NSFetchedResultsController!
+    var dataController: DataController!
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "My Kids"
+        self.setupKidsResultsController()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = sender as! UICollectionViewCell
-        guard let indexPath = self.kidsView .indexPathForCell(cell) else { return }
-        
+        let indexPath = self.kidsView .indexPathForCell(cell)!
         let kidViewController = segue.destinationViewController as! KidViewController
         
-        
-        
-//        kidViewController.kid = self.kids[indexPath.item]
+        kidViewController.kid = self.kidsResultsController.objectAtIndexPath(indexPath) as! Kid
+        kidViewController.delegate = self
     }
 
     
     //MARK:- UICollectionViewDataSource
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        guard let sections = self.kidsResultsController.sections else { return 1 }
+        
+        return sections.count
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let kids = self.kidsResultsController.fetchedObjects else { return 0 }
-        // is this correct for frc ?
+        guard let objects = self.kidsResultsController.fetchedObjects else { return 0 }
+        guard let sections = self.kidsResultsController.sections else { return objects.count }
         
-        return kids.count
+        return sections[section].numberOfObjects
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let identifier = KidCell.identifier()
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! KidCell
         
-//        let kid = self.kids[indexPath.item]
-//        
-//        cell.configure(kid: kid)
+        let kid = self.kidsResultsController.objectAtIndexPath(indexPath) as! Kid
+        cell.configure(kid: kid)
         
         return cell
+    }
+    
+    
+    //MARK:- KidUpdater
+    func didUpdateKid(kid: Kid) {
+        self.dataController.save()
+    }
+    
+    
+    //MARK:- NSFetchedResultsControllerDelegate
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.kidsView.reloadData()
+    }
+    
+    
+    //MARK:- Private
+    private func setupKidsResultsController() {
+        self.kidsResultsController = self.dataController.kidsResultsController(delegate: self)
+        
+        do {
+            try self.kidsResultsController.performFetch()
+        } catch let error as NSError {
+            print("Failed to fetch kids with error: \(error.localizedDescription)")
+        }        
     }
 }
 

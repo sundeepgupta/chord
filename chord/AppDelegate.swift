@@ -17,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupDataController()
         self.setupKidsViewController()
         
+        
+        
+        self.addTestData()
+        
+        
+        
         return true
+    }
+    
+    func addTestData() {
+        self.dataController.createKid("Neeya", major: 1, minor: 2, tracking: true, proximity: .Near)
+        self.dataController.createKid("Kira", major: 828, minor: 999, tracking: false, proximity: .Far)
+        self.dataController.save()
     }
     
     func applicationWillTerminate(application: UIApplication) {
@@ -51,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupKidsViewController() {
         let kidsViewController = self.mainViewController() as! KidsViewController
-        kidsViewController.kidsResultsController = self.dataController.kidsResultsController()
+        kidsViewController.dataController = self.dataController
     }
     
     private func mainViewController() -> UIViewController {

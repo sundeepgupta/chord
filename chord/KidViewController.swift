@@ -1,9 +1,15 @@
 import UIKit
 
+protocol KidUpdater: class {
+    func didUpdateKid(kid: Kid)
+}
+
 class KidViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var trackingSetting: UISwitch!
     var kid: Kid!
+    weak var delegate: KidUpdater!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

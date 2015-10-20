@@ -87,7 +87,7 @@
                                             <outlet property="major" destination="db6-3N-PP6" id="Vkp-Ih-qoI"/>
                                             <outlet property="minor" destination="3u3-zp-He3" id="WSF-UJ-r8t"/>
                                             <outlet property="name" destination="0KX-mD-JLS" id="JkE-Nu-0Kb"/>
-                                            <segue destination="sFT-RI-Elz" kind="show" id="yNd-ta-lU8"/>
+                                            <segue destination="sFT-RI-Elz" kind="show" identifier="" id="yNd-ta-lU8"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -104,7 +104,9 @@
                             <constraint firstItem="f5a-ac-lTd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ak4-Ht-WF0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bBM-8n-YJf"/>
+                    <navigationItem key="navigationItem" id="bBM-8n-YJf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="23q-cB-aFl"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="kidsView" destination="f5a-ac-lTd" id="KfF-1k-5BH"/>
                     </connections>
@@ -184,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="44y-4w-Zys" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1875" y="299"/>
+            <point key="canvasLocation" x="1885" y="299"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QCC-qF-0P3">

@@ -10,6 +10,7 @@ class DataController {
     
     func createKid(name: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
         let kid = self.persistenceController.create("Kid") as! Kid
+        kid.name = name
         kid.major = Int32(major)
         kid.minor = Int32(minor)
         kid.tracking = tracking
@@ -28,8 +29,11 @@ class DataController {
         self.persistenceController.delete(kid)
     }
     
-    func kidsResultsController() -> NSFetchedResultsController {
+    func kidsResultsController(delegate delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let sorter = NSSortDescriptor(key: "name", ascending: true)
-        return self.persistenceController.fetchedResultsController("Kid", predicate: nil, sorters: [sorter], sectionBy: nil, cacheName: nil)
+        let resultsController = self.persistenceController.fetchedResultsController("Kid", predicate: nil, sorters: [sorter], sectionBy: "proximity", cacheName: nil)
+        resultsController.delegate = delegate
+        
+        return resultsController
     }
 }
