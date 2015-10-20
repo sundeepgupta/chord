@@ -4,24 +4,24 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    var dataController: DataController!
+    
     var radar: Radar!
     
-    var persistenceStack: PersistenceStack!
+    
 
     
     //MARK:- UIApplicationDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.setupRadar()
-        
-        
-        self.persistenceStack = PersistenceStack(modelName: "Chord")
+        self.setupDataController()
+        self.setupKidsViewController()
         
         return true
     }
     
     func applicationWillTerminate(application: UIApplication) {
-        // save core data context
+        self.dataController.save()
     }
     
     
@@ -41,6 +41,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.radar = radar
         self.radar.start()
+    }
+    
+    private func setupDataController() {
+        let persistenceStack = PersistenceStack(modelName: "Chord")
+        let persistenceController = PersistenceController(context: persistenceStack.context)
+        self.dataController = DataController(persistenceController: persistenceController)
+    }
+    
+    private func setupKidsViewController() {
+        let kidsViewController = self.mainViewController() as! KidsViewController
+        kidsViewController.kidsResultsController = self.dataController.kidsResultsController()
+    }
+    
+    private func mainViewController() -> UIViewController {
+        let navigationController = self.window!.rootViewController as! UINavigationController
+        
+        return navigationController.viewControllers.first!
     }
 }
 

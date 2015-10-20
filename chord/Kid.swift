@@ -1,16 +1,9 @@
-import Foundation
+import CoreData
 
-struct Kid {
-    var major: Int
-    var minor: Int
-    var name: String
-    var tracking: Bool
-    
-    init(major: Int, minor: Int, name: String, tracking: Bool) {
-        self.major = major
-        self.minor = minor
-        self.name = name
-        self.tracking = tracking
-    }
+class Kid: NSManagedObject {
+    @NSManaged var major: Int32
+    @NSManaged var minor: Int32
+    @NSManaged var name: String
+    @NSManaged var tracking: Bool
+    @NSManaged var proximity: Int16
 }
-

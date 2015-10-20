@@ -8,14 +8,28 @@ class DataController {
         self.persistenceController = persistenceController
     }
     
-    func create(name: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
+    func createKid(name: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
+        let kid = self.persistenceController.create("Kid") as! Kid
+        kid.major = Int32(major)
+        kid.minor = Int32(minor)
+        kid.tracking = tracking
+        kid.proximity = Int16(proximity.rawValue)
         
+        return kid
     }
     
-    func fetchedResultsController() -> NSFetchedResultsController {
+    func save() {
+        self.persistenceController.save()
         
-        
-        
+        // needs to throw or handle error
     }
     
+    func deleteKid(kid: Kid) {
+        self.persistenceController.delete(kid)
+    }
+    
+    func kidsResultsController() -> NSFetchedResultsController {
+        let sorter = NSSortDescriptor(key: "name", ascending: true)
+        return self.persistenceController.fetchedResultsController("Kid", predicate: nil, sorters: [sorter], sectionBy: nil, cacheName: nil)
+    }
 }

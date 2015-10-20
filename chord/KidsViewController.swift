@@ -1,17 +1,14 @@
 import UIKit
+import CoreData
 
 class KidsViewController: UIViewController {
     @IBOutlet weak var kidsView: UICollectionView!
-    var kids: [Kid]!
+    var kidsResultsController: NSFetchedResultsController!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "My Kids"
-        
-        let kid = Kid(major: 1, minor: 2, name: "test", tracking: true)
-        let kid1 = Kid(major: 333, minor: 33, name: "kid1", tracking: false)
-        self.kids = [kid, kid1]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -19,7 +16,10 @@ class KidsViewController: UIViewController {
         guard let indexPath = self.kidsView .indexPathForCell(cell) else { return }
         
         let kidViewController = segue.destinationViewController as! KidViewController
-        kidViewController.kid = self.kids[indexPath.item]
+        
+        
+        
+//        kidViewController.kid = self.kids[indexPath.item]
     }
 
     
@@ -29,16 +29,19 @@ class KidsViewController: UIViewController {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.kids.count
+        guard let kids = self.kidsResultsController.fetchedObjects else { return 0 }
+        // is this correct for frc ?
+        
+        return kids.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let identifier = KidCell.identifier()
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! KidCell
         
-        let kid = self.kids[indexPath.item]
-        
-        cell.configure(kid: kid)
+//        let kid = self.kids[indexPath.item]
+//        
+//        cell.configure(kid: kid)
         
         return cell
     }

@@ -23,7 +23,7 @@ class PersistenceController {
         self.context.deleteObject(object)
     }
     
-    func fetchedResultsController(type: String, predicate: NSPredicate, sorters: [NSSortDescriptor], sectionBy: String, cacheName: String) -> NSFetchedResultsController {
+    func fetchedResultsController(type: String, predicate: NSPredicate?, sorters: [NSSortDescriptor]?, sectionBy: String?, cacheName: String?) -> NSFetchedResultsController {
         let fetchRequest = NSFetchRequest(entityName: type)
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = sorters
