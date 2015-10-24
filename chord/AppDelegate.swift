@@ -5,10 +5,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var dataController: DataController!
-    
     var radar: Radar!
-    
-    
 
     
     //MARK:- UIApplicationDelegate
@@ -17,18 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupDataController()
         self.setupKidsViewController()
         
-        
-        
-        self.addTestData()
-        
-        
+//        self.addTestData()
         
         return true
     }
     
     func addTestData() {
-        self.dataController.createKid("Neeya", major: 1, minor: 2, tracking: true, proximity: .Near)
-        self.dataController.createKid("Kira", major: 828, minor: 999, tracking: false, proximity: .Far)
+        self.dataController.createKid("Neeya", major: 2178, minor: 3672, tracking: true, proximity: .Near)
+//        self.dataController.createKid("Kira", major: 828, minor: 999, tracking: false, proximity: .Far)
         self.dataController.save()
     }
     

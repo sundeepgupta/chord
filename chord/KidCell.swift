@@ -2,8 +2,7 @@ import UIKit
 
 class KidCell: UICollectionViewCell {
     @IBOutlet private weak var name: UILabel!
-    @IBOutlet private weak var major: UILabel!
-    @IBOutlet private weak var minor: UILabel!
+    @IBOutlet weak var proximity: UILabel!
     
     static func identifier() -> String {
         return "KidCell"
@@ -11,8 +10,7 @@ class KidCell: UICollectionViewCell {
     
     func configure(kid kid: Kid) {
         self.name.text = kid.name
-        self.major.text = "\(kid.major)"
-        self.minor.text = "\(kid.minor)"
+        self.proximity.text = kid.proximityText()
         
         self.alpha = kid.tracking ? 1 : 0.3 as CGFloat
     }
