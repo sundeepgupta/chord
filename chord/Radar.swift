@@ -5,6 +5,7 @@ class Radar: NSObject, RadarResponderDelegate {
     private let locationManager: CLLocationManager
     private let region: CLBeaconRegion
     private let responder: RadarResponder
+    private var beaconActivities: [BeaconActivity] = []
     
     
     init(locationManager: CLLocationManager, region: CLBeaconRegion, responder: RadarResponder) {
@@ -37,7 +38,13 @@ class Radar: NSObject, RadarResponderDelegate {
     }
     
     func rangedBeacons(beacons: ([CLBeacon])) {
-        
+//        for beaconActivity in self.beaconActivities {
+//            for beacon in beacons {
+//                if beaconActivity.beaconId.major == beacon.major && beaconActivity.beaconId.minor == beacon.minor {
+//                    beaconActivity.updateProximity(beacon.proximity)
+//                }
+//            }
+//        }
     }
 }
 
