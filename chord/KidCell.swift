@@ -10,7 +10,9 @@ class KidCell: UICollectionViewCell {
     
     func configure(kid kid: Kid) {
         self.name.text = kid.name
-        self.proximity.text = kid.proximityText()
+        self.proximity.text = kid.proximityString
+        
+        print(kid.proximityString)
         
         self.alpha = kid.tracking ? 1 : 0.3 as CGFloat
     }

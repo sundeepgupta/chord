@@ -1,6 +1,6 @@
 import CoreLocation
 
-class BeaconActivity {
+class BeaconActivity: NSObject {
     private(set) var beaconId: BeaconId
     private var timer = NSTimer()
     private let probationPeriod: NSTimeInterval
@@ -11,15 +11,14 @@ class BeaconActivity {
         }
     }
     private var candidate: Proximity! {
-        willSet {
-            guard newValue != self.candidate else { return }
-            
-            if newValue == self.proximity {
-                self.timer.invalidate()
-            }
-        }
         didSet {
-            self.startTimer(self.candidate)
+            guard oldValue != self.candidate else { return }
+            
+            if self.candidate == self.proximity {
+                self.timer.invalidate()
+            } else {
+                self.startTimer(self.candidate)
+            }
         }
     }
 
@@ -29,12 +28,13 @@ class BeaconActivity {
         self.reaction = proximityReaction
         self.candidate = .InRange(proximity)
         self.probationPeriod = probationPeriod
+        super.init()
         
         self.startTimer(self.candidate) // Property observers not called during init.
     }
     
-    func update(proximity: CLProximity?) {
-        if let p = proximity {
+    func update(beaconProximity: CLProximity?) {
+        if let p = beaconProximity {
             self.candidate = .InRange(p)
         } else {
             self.candidate = .OutOfRange
@@ -50,7 +50,7 @@ class BeaconActivity {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(self.probationPeriod, target: self, selector: "acceptCandidate:", userInfo: userInfo, repeats: false)
     }
     
-    private func acceptCandidate(timer: NSTimer) {
+    dynamic func acceptCandidate(timer: NSTimer) {
         let proximityString = timer.userInfo as! String
         self.proximity = proximityString.toProximity()
     }

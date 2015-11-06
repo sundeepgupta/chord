@@ -9,7 +9,7 @@ struct RadarFactory {
         let locationManager = CLLocationManager()
         let responder = RadarResponder()
         let proximityReaction = { (beaconId: BeaconId, proximity: Proximity) in
-            let userInfo: [String: AnyObject] = ["beaconId": beaconId, "proximity": proximity.toString()]
+            let userInfo: [String: AnyObject] = ["beaconId": beaconId, "proximityString": proximity.toString()]
             NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.proximityDidChange, object: nil, userInfo: userInfo)
         }
         let radar = Radar(locationManager: locationManager, region: region, responder: responder, proximityReaction: proximityReaction)

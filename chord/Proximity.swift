@@ -38,6 +38,16 @@ extension String {
     }
 }
 
+extension CLProximity {
+    func toProximity() -> Proximity {
+        return Proximity.InRange(self)
+    }
+    
+    func toString() -> String {
+        return self.toProximity().toString()
+    }
+}
+
 struct ProximityStrings {
     static let pending = "Pending"
     static let outOfRange = "Out of range"

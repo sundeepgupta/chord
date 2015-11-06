@@ -171,7 +171,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QCC-qF-0P3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Zg-LT-gS2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Zg-LT-gS2" customClass="NavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3CB-TK-kEL">
@@ -186,6 +186,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bl3-uG-EcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1340" y="353"/>
+        </scene>
+        <!--Add Kid View Controller-->
+        <scene sceneID="u3A-qC-KFr">
+            <objects>
+                <viewController id="BHM-fY-9Sp" customClass="AddKidViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKZ-5S-iFw"/>
+                        <viewControllerLayoutGuide type="bottom" id="LFY-Mp-xvd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQ5-8G-Gpp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kid's name..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="sUH-UO-jCR">
+                                <rect key="frame" x="20" y="98" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="V68-Yo-SMI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFB-Fg-THI">
+                                <rect key="frame" x="251" y="151" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="Lea-Or-D3u"/>
+                                    <constraint firstAttribute="height" constant="31" id="Y4I-3H-WQa"/>
+                                </constraints>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep an eye on this kid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSK-W6-TUy">
+                                <rect key="frame" x="20" y="156" width="223" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1sB-i2-O8y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sUH-UO-jCR" firstAttribute="leading" secondItem="rQ5-8G-Gpp" secondAttribute="leading" constant="20" id="9KX-i8-dCu"/>
+                            <constraint firstAttribute="trailing" secondItem="sFB-Fg-THI" secondAttribute="trailing" constant="20" id="CVe-Ex-SIm"/>
+                            <constraint firstItem="vSK-W6-TUy" firstAttribute="leading" secondItem="rQ5-8G-Gpp" secondAttribute="leading" constant="20" id="ICl-o2-1uI"/>
+                            <constraint firstItem="sFB-Fg-THI" firstAttribute="leading" secondItem="vSK-W6-TUy" secondAttribute="trailing" constant="8" id="RcS-jv-5cz"/>
+                            <constraint firstItem="sUH-UO-jCR" firstAttribute="top" secondItem="zKZ-5S-iFw" secondAttribute="bottom" constant="34" id="WIa-lk-7nq"/>
+                            <constraint firstAttribute="trailing" secondItem="sUH-UO-jCR" secondAttribute="trailing" constant="20" id="bW1-uJ-XZq"/>
+                            <constraint firstItem="vSK-W6-TUy" firstAttribute="top" secondItem="sUH-UO-jCR" secondAttribute="bottom" constant="28" id="mZy-Nl-uGR"/>
+                            <constraint firstItem="sFB-Fg-THI" firstAttribute="top" secondItem="sUH-UO-jCR" secondAttribute="bottom" constant="23" id="zrF-0F-ZLh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lhc-wf-BDe">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fTB-Re-AXT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oBV-ZV-UTw"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="name" destination="sUH-UO-jCR" id="eNa-bL-oXm"/>
+                        <outlet property="trackingSetting" destination="sFB-Fg-THI" id="ckz-TI-UVV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWx-nd-umV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301" y="263"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ckP-yX-3gx">
+            <objects>
+                <navigationController storyboardIdentifier="AddKidNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="e0Q-fo-VzT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bLg-xf-MrI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BHM-fY-9Sp" kind="relationship" relationship="rootViewController" id="NYP-99-pC6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6O-4M-z5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2247" y="299"/>
         </scene>
     </scenes>
 </document>

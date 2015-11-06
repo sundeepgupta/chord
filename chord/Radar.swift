@@ -54,12 +54,12 @@ class Radar: NSObject, RadarResponderDelegate {
         let activityIds = self.activityIds()
         
         for i in 0..<beacons.count {
-            let proximity = beacons[i].proximity
+            let beaconProximity = beacons[i].proximity
             
             if activityIds.contains(beaconIds[i]) {
-                self.activities[i].update(proximity)
+                self.activities[i].update(beaconProximity)
             } else {
-                let activity = BeaconActivity(beaconId: beaconIds[i], proximity: proximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
+                let activity = BeaconActivity(beaconId: beaconIds[i], proximity: beaconProximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
                 self.activities.append(activity)
             }
         }
@@ -75,9 +75,16 @@ class Radar: NSObject, RadarResponderDelegate {
     }
     
     private func activityIds() -> [BeaconId] {
-        return self.activities.map { (activity) -> BeaconId in
-            return activity.beaconId
+        var ids: [BeaconId] = []
+        for activity in self.activities {
+            ids.append(activity.beaconId)
         }
+        
+        return ids
+        
+//        return self.activities.map { (activity) -> BeaconId in
+//            return activity.beaconId
+//        }
     }
     
     private func beaconIds(beacons beacons: [CLBeacon]) -> [BeaconId] {

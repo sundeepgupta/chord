@@ -29,6 +29,8 @@
 		278397BE1BDD29CF00575C57 /* BeaconActivity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278397BD1BDD29CF00575C57 /* BeaconActivity_Tests.swift */; };
 		279DAEB31BDC51E100DF355D /* BeaconId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DAEB21BDC51E100DF355D /* BeaconId.swift */; };
 		279DAEB51BDC53C000DF355D /* BeaconActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DAEB41BDC53C000DF355D /* BeaconActivity.swift */; };
+		27A1CE9F1BEC4CB700A6879C /* AddKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1CE9E1BEC4CB700A6879C /* AddKidViewController.swift */; };
+		27A1CEA11BEC4E4800A6879C /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1CEA01BEC4E4800A6879C /* NavigationController.swift */; };
 		27A8DF341BE9B69A0022ABBC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A8DF331BE9B69A0022ABBC /* Constants.swift */; };
 		27ADB6BF1BD483AB0062B776 /* PersistenceStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */; };
 		27ADB6C31BD4845E0062B776 /* Chord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27ADB6C11BD4845E0062B776 /* Chord.xcdatamodeld */; };
@@ -73,6 +75,8 @@
 		278397BD1BDD29CF00575C57 /* BeaconActivity_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconActivity_Tests.swift; sourceTree = "<group>"; };
 		279DAEB21BDC51E100DF355D /* BeaconId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconId.swift; sourceTree = "<group>"; };
 		279DAEB41BDC53C000DF355D /* BeaconActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconActivity.swift; sourceTree = "<group>"; };
+		27A1CE9E1BEC4CB700A6879C /* AddKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKidViewController.swift; sourceTree = "<group>"; };
+		27A1CEA01BEC4E4800A6879C /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		27A8DF331BE9B69A0022ABBC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceStack.swift; sourceTree = "<group>"; };
 		27ADB6C21BD4845E0062B776 /* Chord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chord.xcdatamodel; sourceTree = "<group>"; };
@@ -167,8 +171,9 @@
 		27783BFC1BD4497500C26D37 /* Kids */ = {
 			isa = PBXGroup;
 			children = (
-				2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */,
+				27A1CE9E1BEC4CB700A6879C /* AddKidViewController.swift */,
 				27783BFD1BD4498900C26D37 /* KidCell.swift */,
+				2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */,
 				27783C021BD462BE00C26D37 /* KidViewController.swift */,
 			);
 			name = Kids;
@@ -180,6 +185,15 @@
 				27783C001BD451CE00C26D37 /* KidCell_Tests.swift */,
 			);
 			name = Kids;
+			sourceTree = "<group>";
+		};
+		27A1CE9D1BEC4C9F00A6879C /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */,
+				277A463A1BD556F1006A44A0 /* PersistenceController.swift */,
+			);
+			name = Persistence;
 			sourceTree = "<group>";
 		};
 		27ADB6BC1BD483440062B776 /* Resources */ = {
@@ -196,9 +210,10 @@
 			isa = PBXGroup;
 			children = (
 				2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */,
-				2746B02E1BA52B5A00B4D364 /* Main.storyboard */,
-				27ADB6C01BD484350062B776 /* Data */,
 				27A8DF331BE9B69A0022ABBC /* Constants.swift */,
+				27ADB6C01BD484350062B776 /* Data */,
+				2746B02E1BA52B5A00B4D364 /* Main.storyboard */,
+				27A1CEA01BEC4E4800A6879C /* NavigationController.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -206,11 +221,10 @@
 		27ADB6C01BD484350062B776 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				277A463E1BD5C7CD006A44A0 /* Kid.swift */,
-				27ADB6BE1BD483AB0062B776 /* PersistenceStack.swift */,
 				27ADB6C11BD4845E0062B776 /* Chord.xcdatamodeld */,
-				277A463A1BD556F1006A44A0 /* PersistenceController.swift */,
 				277A463C1BD5C5EC006A44A0 /* DataController.swift */,
+				277A463E1BD5C7CD006A44A0 /* Kid.swift */,
+				27A1CE9D1BEC4C9F00A6879C /* Persistence */,
 				278397BB1BDD0F1B00575C57 /* Proximity.swift */,
 			);
 			name = Data;
@@ -334,9 +348,11 @@
 				279DAEB51BDC53C000DF355D /* BeaconActivity.swift in Sources */,
 				27A8DF341BE9B69A0022ABBC /* Constants.swift in Sources */,
 				277A463B1BD556F1006A44A0 /* PersistenceController.swift in Sources */,
+				27A1CE9F1BEC4CB700A6879C /* AddKidViewController.swift in Sources */,
 				278397BC1BDD0F1B00575C57 /* Proximity.swift in Sources */,
 				27ADB6C31BD4845E0062B776 /* Chord.xcdatamodeld in Sources */,
 				2746B0591BA52BE600B4D364 /* Radar.swift in Sources */,
+				27A1CEA11BEC4E4800A6879C /* NavigationController.swift in Sources */,
 				277A463F1BD5C7CD006A44A0 /* Kid.swift in Sources */,
 				27F7C3FF1BB4DB1600687F55 /* RadarResponder.swift in Sources */,
 				27FF88841BB77B9700D86C99 /* RadarFactory.swift in Sources */,

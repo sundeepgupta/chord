@@ -4,7 +4,7 @@
         <attribute name="major" attributeType="Integer 32" minValueString="0" maxValueString="65535" defaultValueString="0" syncable="YES"/>
         <attribute name="minor" attributeType="Integer 32" minValueString="0" maxValueString="65535" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="proximity" transient="YES" attributeType="Integer 16" minValueString="-1" maxValueString="3" defaultValueString="-1" syncable="YES"/>
+        <attribute name="proximityString" attributeType="String" syncable="YES"/>
         <attribute name="tracking" attributeType="Boolean" syncable="YES"/>
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>

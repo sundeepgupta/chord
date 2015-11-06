@@ -11,13 +11,14 @@ class DataController: NSObject {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateProximity:", name: NotificationName.proximityDidChange, object: nil)
     }
     
-    func createKid(name: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
+    func createKid(name: String, uuid: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
         let kid = self.persistenceController.create("Kid") as! Kid
         kid.name = name
+        kid.uuid = uuid
         kid.major = Int32(major)
         kid.minor = Int32(minor)
         kid.tracking = tracking
-        kid.proximity = Int16(proximity.rawValue)
+        kid.proximityString = proximity.toString()
         
         return kid
     }
@@ -34,7 +35,7 @@ class DataController: NSObject {
     
     func kidsResultsController(delegate delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController {
         let sorter = NSSortDescriptor(key: "name", ascending: true)
-        let resultsController = self.persistenceController.fetchedResultsController("Kid", predicate: nil, sorters: [sorter], sectionBy: "proximity", cacheName: nil)
+        let resultsController = self.persistenceController.fetchedResultsController("Kid", predicate: nil, sorters: [sorter], sectionBy: "proximityString", cacheName: nil)
         resultsController.delegate = delegate
         
         return resultsController
@@ -56,19 +57,10 @@ class DataController: NSObject {
         case 0:
             print("No Kid found for beacon ID: \(beaconId)")
         case 1:
-            let kid = kids.first!
-            
-            let proximity = userInfo[Key.proximity]
-            
-            
-            kid.proximity = proxi
-            
-            // Need to use different data structure for Kid's proximity. Or add another integer value to represent Out of Range and possibly pending. 
-            // Maybe simply use a String, not an Int. 
-            
+            let kid = kids.first as! Kid
+            kid.proximityString = userInfo[Key.proximityString] as! String
         default:
             print("Error - multiple Kids found for beacon ID: \(beaconId)")
         }
-        
     }
 }
