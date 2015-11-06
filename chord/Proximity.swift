@@ -13,6 +13,7 @@ enum Proximity: Equatable {
         }
     }
     
+    
     private func beaconProximityToString(proximity: CLProximity) -> String {
         switch proximity {
         case .Far: return ProximityStrings.far

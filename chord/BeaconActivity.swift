@@ -1,14 +1,13 @@
 import CoreLocation
 
 class BeaconActivity {
-    let beaconId: BeaconId
+    private(set) var beaconId: BeaconId
     private var timer = NSTimer()
-    let probationPeriod: NSTimeInterval = 3
-    let reaction: BeaconActivity -> ()
+    private let probationPeriod: NSTimeInterval
+    private let reaction: (BeaconId, Proximity) -> ()
     private(set) var proximity = Proximity.Pending {
         didSet {
-            self.reaction(self)
-//            NSNotificationCenter.defaultCenter().postNotificationName("BeaconProximityDidChange", object: self, userInfo: nil)
+            self.reaction(self.beaconId, self.proximity)
         }
     }
     private var candidate: Proximity! {
@@ -23,13 +22,15 @@ class BeaconActivity {
             self.startTimer(self.candidate)
         }
     }
+
     
-    
-    init(beaconId: BeaconId, proximity: CLProximity, proximityReaction: BeaconActivity -> ()) {
+    init(beaconId: BeaconId, proximity: CLProximity, probationPeriod: NSTimeInterval, proximityReaction: (BeaconId, Proximity) -> ()) {
         self.beaconId = beaconId
         self.reaction = proximityReaction
         self.candidate = .InRange(proximity)
-        self.startTimer(self.candidate)
+        self.probationPeriod = probationPeriod
+        
+        self.startTimer(self.candidate) // Property observers not called during init.
     }
     
     func update(proximity: CLProximity?) {

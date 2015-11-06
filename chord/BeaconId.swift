@@ -1,10 +1,13 @@
-import Foundation
+import CoreLocation
 
-struct BeaconId: Equatable {
+
+class BeaconId: Equatable {
+    let UUID: NSUUID
     let major: NSNumber
     let minor: NSNumber
     
-    init(major: NSNumber, minor: NSNumber) {
+    init(UUID: NSUUID, major: NSNumber, minor: NSNumber) {
+        self.UUID = UUID
         self.major = major
         self.minor = minor
     }
@@ -13,5 +16,13 @@ struct BeaconId: Equatable {
 
 // MARK:- Equatable
 func ==(lhs: BeaconId, rhs: BeaconId) -> Bool {
-    return lhs.major == rhs.major && lhs.minor == rhs.minor
+    return lhs.UUID == rhs.UUID && lhs.major == rhs.major && lhs.minor == rhs.minor
+}
+
+
+
+extension CLBeacon {
+    func beaconId() -> BeaconId {
+        return BeaconId(UUID: self.proximityUUID, major: self.major, minor: self.minor)
+    }
 }

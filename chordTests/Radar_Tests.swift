@@ -7,6 +7,7 @@ class Radar_Tests: XCTestCase {
     var subject: Radar!
     var locationManager: FakeLocationManager!
     var region: CLBeaconRegion!
+    var proximityReactionCalled = false
     
     override func setUp() {
         super.setUp()
@@ -16,7 +17,9 @@ class Radar_Tests: XCTestCase {
         let UUID = NSUUID(UUIDString: "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")
         self.region = CLBeaconRegion(proximityUUID: UUID!, identifier: "abc")
 
-        self.subject = Radar(locationManager: self.locationManager, region: self.region, responder: RadarResponder())
+        self.subject = Radar(locationManager: self.locationManager, region: self.region, responder: RadarResponder()) { (_, _) in
+            self.proximityReactionCalled = true
+        }
     }
     
     func testStarting() {

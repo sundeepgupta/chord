@@ -9,7 +9,7 @@ class FakeRadar: Radar {
     var beacons: [CLBeacon] = []
     
     static func radar() -> FakeRadar {
-        return FakeRadar(locationManager: CLLocationManager(), region: CLBeaconRegion(), responder: RadarResponder())
+        return FakeRadar(locationManager: CLLocationManager(), region: CLBeaconRegion(), responder: RadarResponder()) { (_,_) in }
     }
     
     override func start() {
