@@ -2,6 +2,7 @@ import UIKit
 
 protocol KidUpdater: class {
     func didUpdateKid(kid: Kid)
+    func didDeleteKid(kid: Kid)
 }
 
 class KidViewController: UIViewController {
@@ -20,6 +21,6 @@ class KidViewController: UIViewController {
     }
     
     @IBAction func delete() {
-        
+        self.delegate.didDeleteKid(self.kid)
     }
 }

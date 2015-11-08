@@ -54,6 +54,10 @@ class KidsViewController: UIViewController, KidUpdater, NSFetchedResultsControll
         self.dataController.save()
     }
     
+    func didDeleteKid(kid: Kid) {
+        self.dataController.deleteKid(kid)
+    }
+    
     
     //MARK:- NSFetchedResultsControllerDelegate
     func controllerDidChangeContent(controller: NSFetchedResultsController) {

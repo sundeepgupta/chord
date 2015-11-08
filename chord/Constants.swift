@@ -1,6 +1,5 @@
 struct NotificationName {
     static let proximityDidChange = "BeaconProximityDidChange"
-    static let newKidWasDetected = "newKidWasDetected"
     static let newKidWasAdded = "newKidWasAdded"
 }
 

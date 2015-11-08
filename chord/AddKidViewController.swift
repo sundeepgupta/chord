@@ -31,7 +31,6 @@ class AddKidViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
     // MARK:- UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.save()
@@ -40,12 +39,8 @@ class AddKidViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
     // MARK:- Private
     private func dismiss() {
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    
 }

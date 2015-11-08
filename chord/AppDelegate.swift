@@ -6,10 +6,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var dataController: DataController!
     var radar: Radar!
+    var navigationController: NavigationController!
 
     
     //MARK:- UIApplicationDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        self.setupNavigationController()
         self.setupRadar()
         self.setupDataController()
         self.setupKidsViewController()
@@ -21,8 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.dataController.save()
     }
     
-    
-    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let beaconId = notification.userInfo![Key.beaconId] as! BeaconId
+        // Will need to check here or eventually have a NotifcationTriage object
+        
+        self.navigationController.addKid(beaconId)
+    }
     
     // MARK: - Private
     private func setupRadar() {
@@ -46,10 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         kidsViewController.dataController = self.dataController
     }
     
+    private func setupNavigationController() {
+        self.navigationController = self.window!.rootViewController as! NavigationController
+    }
+    
     private func mainViewController() -> UIViewController {
-        let navigationController = self.window!.rootViewController as! UINavigationController
-        
-        return navigationController.viewControllers.first!
+        return self.navigationController.viewControllers.first!
     }
 }
 

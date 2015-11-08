@@ -4,13 +4,12 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "presentKid:", name: NotificationName.newKidWasDetected, object: nil)
     }
     
-    dynamic func presentKid(notification: NSNotification) {
+    func addKid(beaconId: BeaconId) {
         let navigationController = self.storyboard!.instantiateViewControllerWithIdentifier("AddKidNavigationController") as! UINavigationController
         let addKidViewController = navigationController.viewControllers.first as! AddKidViewController
-        addKidViewController.beaconId = notification.userInfo![Key.beaconId] as! BeaconId
+        addKidViewController.beaconId = beaconId
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }

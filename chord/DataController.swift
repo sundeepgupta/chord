@@ -47,7 +47,7 @@ class DataController: NSObject {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[Key.beaconId] as! BeaconId
         
-        let uuid = beaconId.UUID.UUIDString
+        let uuid = beaconId.uuid
         let major = beaconId.major
         let minor = beaconId.minor
         let predicate = NSPredicate(format: "uuid == %@ && major == %@ && minor == %@", uuid, major, minor)
@@ -56,22 +56,23 @@ class DataController: NSObject {
         
         switch kids.count {
         case 0:
-            let userInfo = [Key.beaconId: beaconId]
-            NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.newKidWasDetected, object: nil, userInfo: userInfo)
+            Poke.send(beaconId)
         case 1:
             let kid = kids.first as! Kid
             kid.proximityString = userInfo[Key.proximityString] as! String
         default:
-            print("Error - multiple Kids found for beacon ID: \(beaconId)")
+            fatalError("Error - multiple Kids found for beacon ID: \(beaconId)")
         }
     }
+    
+    
     
     dynamic func addKid(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[Key.beaconId] as! BeaconId
         let major = Int32(beaconId.major as Int)
         let minor = Int32(beaconId.minor as Int)
-        let uuid = beaconId.UUID.UUIDString
+        let uuid = beaconId.uuid
         let name = userInfo[Key.name] as! String
         let tracking = userInfo[Key.tracking] as! Bool
         

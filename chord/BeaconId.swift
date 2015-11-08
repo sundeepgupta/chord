@@ -1,28 +1,30 @@
 import CoreLocation
 
 
-class BeaconId: Equatable {
-    let UUID: NSUUID
+class BeaconId: NSObject {
+    let uuid: String
     let major: NSNumber
     let minor: NSNumber
     
-    init(UUID: NSUUID, major: NSNumber, minor: NSNumber) {
-        self.UUID = UUID
+    init(uuid: String, major: NSNumber, minor: NSNumber) {
+        self.uuid = uuid
         self.major = major
         self.minor = minor
+        
+        super.init()
     }
 }
 
 
 // MARK:- Equatable
 func ==(lhs: BeaconId, rhs: BeaconId) -> Bool {
-    return lhs.UUID == rhs.UUID && lhs.major == rhs.major && lhs.minor == rhs.minor
+    return lhs.uuid == rhs.uuid && lhs.major == rhs.major && lhs.minor == rhs.minor
 }
 
 
 
 extension CLBeacon {
     func beaconId() -> BeaconId {
-        return BeaconId(UUID: self.proximityUUID, major: self.major, minor: self.minor)
+        return BeaconId(uuid: self.proximityUUID.UUIDString, major: self.major, minor: self.minor)
     }
 }
