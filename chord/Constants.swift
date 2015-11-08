@@ -8,6 +8,9 @@ struct Key {
     static let proximityString = "proximityString"
     static let name = "name"
     static let tracking = "tracking"
+    static let uuid = "uuid"
+    static let major = "major"
+    static let minor = "minor"
 }
 
 struct Global {

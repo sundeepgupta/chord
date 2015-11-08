@@ -1,7 +1,7 @@
-import CoreLocation
+import Foundation
 
 
-class BeaconId: NSObject {
+class BeaconId: NSObject, NSCoding {
     let uuid: String
     let major: NSNumber
     let minor: NSNumber
@@ -13,16 +13,38 @@ class BeaconId: NSObject {
         
         super.init()
     }
+    
+    
+    // MARK:- NSCoding
+    required convenience init?(coder decoder: NSCoder) {
+        let uuid = decoder.decodeObjectForKey(Key.uuid) as! String
+        let major = decoder.decodeObjectForKey(Key.major) as! NSNumber
+        let minor = decoder.decodeObjectForKey(Key.minor) as! NSNumber
+        
+        self.init(uuid: uuid, major: major, minor: minor)
+    }
+    
+    func encodeWithCoder(coder: NSCoder) {
+        coder.encodeObject(self.uuid, forKey: Key.uuid)
+        coder.encodeObject(self.major, forKey: Key.major)
+        coder.encodeObject(self.minor, forKey: Key.minor)
+    }
+    
+    
+    // MARK:- NSObject
+    override func isEqual(object: AnyObject?) -> Bool {
+        guard let rhs = object as? BeaconId else { return false }
+        
+        return self.uuid == rhs.uuid && self.major == rhs.major && self.minor == rhs.minor
+    }
+    
+    override var hash: Int {
+        return self.uuid.hashValue
+    }
 }
 
 
-// MARK:- Equatable
-func ==(lhs: BeaconId, rhs: BeaconId) -> Bool {
-    return lhs.uuid == rhs.uuid && lhs.major == rhs.major && lhs.minor == rhs.minor
-}
-
-
-
+import CoreLocation
 extension CLBeacon {
     func beaconId() -> BeaconId {
         return BeaconId(uuid: self.proximityUUID.UUIDString, major: self.major, minor: self.minor)
