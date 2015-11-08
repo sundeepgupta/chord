@@ -14,15 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupDataController()
         self.setupKidsViewController()
         
-//        self.addTestData()
-        
         return true
-    }
-    
-    func addTestData() {
-        self.dataController.createKid("Neeya", uuid: Global.uuid, major: 2178, minor: 3672, tracking: true, proximity: .Near)
-//        self.dataController.createKid("Kira", major: 828, minor: 999, tracking: false, proximity: .Far)
-        self.dataController.save()
     }
     
     func applicationWillTerminate(application: UIApplication) {

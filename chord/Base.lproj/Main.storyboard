@@ -171,7 +171,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QCC-qF-0P3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Zg-LT-gS2" customClass="NavigationController" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Zg-LT-gS2" customClass="NavigationController" customModule="chord" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3CB-TK-kEL">
@@ -190,7 +190,7 @@
         <!--Add Kid View Controller-->
         <scene sceneID="u3A-qC-KFr">
             <objects>
-                <viewController id="BHM-fY-9Sp" customClass="AddKidViewController" sceneMemberID="viewController">
+                <viewController id="BHM-fY-9Sp" customClass="AddKidViewController" customModule="chord" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zKZ-5S-iFw"/>
                         <viewControllerLayoutGuide type="bottom" id="LFY-Mp-xvd"/>
@@ -206,6 +206,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BHM-fY-9Sp" id="IOD-3S-bBU"/>
+                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFB-Fg-THI">
                                 <rect key="frame" x="251" y="151" width="51" height="31"/>
@@ -237,8 +240,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lhc-wf-BDe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fTB-Re-AXT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oBV-ZV-UTw"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fTB-Re-AXT">
+                            <connections>
+                                <action selector="cancel" destination="BHM-fY-9Sp" id="jsc-zL-2By"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="oBV-ZV-UTw">
+                            <connections>
+                                <action selector="save" destination="BHM-fY-9Sp" id="9yk-zF-Yio"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>

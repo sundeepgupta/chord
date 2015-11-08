@@ -8,15 +8,15 @@ class DataController: NSObject {
         self.persistenceController = persistenceController
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateProximity:", name: NotificationName.proximityDidChange, object: nil)
+        self.addObservers()
     }
     
-    func createKid(name: String, uuid: String, major: CLBeaconMajorValue, minor: CLBeaconMinorValue, tracking: Bool, proximity: CLProximity) -> Kid {
+    func createKid(name: String, uuid: String, major: Int32, minor: Int32, tracking: Bool, proximity: CLProximity) -> Kid {
         let kid = self.persistenceController.create("Kid") as! Kid
         kid.name = name
         kid.uuid = uuid
-        kid.major = Int32(major)
-        kid.minor = Int32(minor)
+        kid.major = major
+        kid.minor = minor
         kid.tracking = tracking
         kid.proximityString = proximity.toString()
         
@@ -42,6 +42,7 @@ class DataController: NSObject {
     }
     
     
+    // MARK:- Observers
     dynamic func updateProximity(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[Key.beaconId] as! BeaconId
@@ -55,12 +56,32 @@ class DataController: NSObject {
         
         switch kids.count {
         case 0:
-            print("No Kid found for beacon ID: \(beaconId)")
+            let userInfo = [Key.beaconId: beaconId]
+            NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.newKidWasDetected, object: nil, userInfo: userInfo)
         case 1:
             let kid = kids.first as! Kid
             kid.proximityString = userInfo[Key.proximityString] as! String
         default:
             print("Error - multiple Kids found for beacon ID: \(beaconId)")
         }
+    }
+    
+    dynamic func addKid(notification: NSNotification) {
+        let userInfo = notification.userInfo!
+        let beaconId = userInfo[Key.beaconId] as! BeaconId
+        let major = Int32(beaconId.major as Int)
+        let minor = Int32(beaconId.minor as Int)
+        let uuid = beaconId.UUID.UUIDString
+        let name = userInfo[Key.name] as! String
+        let tracking = userInfo[Key.tracking] as! Bool
+        
+        self.createKid(name, uuid: uuid, major: major, minor: minor, tracking: tracking, proximity: .Immediate)
+    }
+    
+    
+    // MARK:- Private
+    private func addObservers() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateProximity:", name: NotificationName.proximityDidChange, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addKid:", name: NotificationName.newKidWasAdded, object: nil)
     }
 }

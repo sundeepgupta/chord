@@ -42,10 +42,8 @@ class Radar: NSObject, RadarResponderDelegate {
     
     func rangedBeacons(beacons: ([CLBeacon])) {
         let beaconIds = self.beaconIds(beacons: beacons)
-        
-        self.handleInRangeBeacons(beacons, beaconIds: beaconIds)
-        
         self.handleOutOfRangeBeacons(beaconIds: beaconIds)
+        self.handleInRangeBeacons(beacons, beaconIds: beaconIds)
     }
     
     
@@ -54,17 +52,16 @@ class Radar: NSObject, RadarResponderDelegate {
         let activityIds = self.activityIds()
         
         for i in 0..<beacons.count {
-            let beaconProximity = beacons[i].proximity
+            let beacon = beacons[i]
             
             if activityIds.contains(beaconIds[i]) {
-                self.activities[i].update(beaconProximity)
+                self.activities[i].update(beacon.proximity)
             } else {
-                let activity = BeaconActivity(beaconId: beaconIds[i], proximity: beaconProximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
+                let activity = BeaconActivity(beaconId: beacon.beaconId(), proximity: beacon.proximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
                 self.activities.append(activity)
             }
         }
     }
-
     
     private func handleOutOfRangeBeacons(beaconIds beaconIds: [BeaconId]) {
         for activity in self.activities {
@@ -80,11 +77,9 @@ class Radar: NSObject, RadarResponderDelegate {
             ids.append(activity.beaconId)
         }
         
-        return ids
+        // Using map() here crashes with bad access.
         
-//        return self.activities.map { (activity) -> BeaconId in
-//            return activity.beaconId
-//        }
+        return ids
     }
     
     private func beaconIds(beacons beacons: [CLBeacon]) -> [BeaconId] {
