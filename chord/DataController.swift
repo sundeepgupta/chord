@@ -47,16 +47,16 @@ class DataController: NSObject {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[Key.beaconId] as! BeaconId
         
-        let uuid = beaconId.uuid
-        let major = beaconId.major
-        let minor = beaconId.minor
+        let uuid = beaconId[Key.uuid]!
+        let major = beaconId[Key.major]!
+        let minor = beaconId[Key.minor]!
         let predicate = NSPredicate(format: "uuid == %@ && major == %@ && minor == %@", uuid, major, minor)
         
         let kids = self.persistenceController.objects("Kid", predicate: predicate, sorters: nil)
         
         switch kids.count {
         case 0:
-            Poke.send(beaconId)
+            Notifier.sendNewKid(beaconId)
         case 1:
             let kid = kids.first as! Kid
             kid.proximityString = userInfo[Key.proximityString] as! String
@@ -70,9 +70,9 @@ class DataController: NSObject {
     dynamic func addKid(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[Key.beaconId] as! BeaconId
-        let major = Int32(beaconId.major as Int)
-        let minor = Int32(beaconId.minor as Int)
-        let uuid = beaconId.uuid
+        let major = Int32(beaconId[Key.major] as! Int)
+        let minor = Int32(beaconId[Key.minor] as! Int)
+        let uuid = beaconId[Key.uuid] as! String
         let name = userInfo[Key.name] as! String
         let tracking = userInfo[Key.tracking] as! Bool
         

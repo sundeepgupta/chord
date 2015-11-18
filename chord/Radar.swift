@@ -48,25 +48,30 @@ class Radar: NSObject, RadarResponderDelegate {
     
     
     // MARK:- Private
+    private func handleOutOfRangeBeacons(beaconIds beaconIds: [BeaconId]) {
+        for activity in self.activities {
+            
+            let inRange = beaconIds.includes(activity.beaconId)
+            
+            if !inRange {
+                activity.update(nil)
+            }
+        }
+    }
+    
     private func handleInRangeBeacons(beacons: [CLBeacon], beaconIds: [BeaconId]) {
         let activityIds = self.activityIds()
         
         for i in 0..<beacons.count {
             let beacon = beacons[i]
             
-            if activityIds.contains(beaconIds[i]) {
+            let alreadyTracking = activityIds.includes(beaconIds[i])
+            
+            if alreadyTracking {
                 self.activities[i].update(beacon.proximity)
             } else {
-                let activity = BeaconActivity(beaconId: beacon.beaconId(), proximity: beacon.proximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
+                let activity = BeaconActivity(beaconId: beacon.toBeaconId(), proximity: beacon.proximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
                 self.activities.append(activity)
-            }
-        }
-    }
-    
-    private func handleOutOfRangeBeacons(beaconIds beaconIds: [BeaconId]) {
-        for activity in self.activities {
-            if !beaconIds.contains(activity.beaconId) {
-                activity.update(nil)
             }
         }
     }
@@ -84,7 +89,7 @@ class Radar: NSObject, RadarResponderDelegate {
     
     private func beaconIds(beacons beacons: [CLBeacon]) -> [BeaconId] {
         return beacons.map { (beacon) -> BeaconId in
-            return beacon.beaconId()
+            return beacon.toBeaconId()
         }
     }
 }

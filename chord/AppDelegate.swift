@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let beaconId = notification.userInfo![Key.beaconId] as! BeaconId
+        let beaconId = notification.userInfo![Key.beaconId] as! [String: NSObject]
         // Will need to check here or eventually have a NotifcationTriage object
         
         self.navigationController.addKid(beaconId)
