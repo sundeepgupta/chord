@@ -45,11 +45,11 @@ class DataController: NSObject {
     // MARK:- Observers
     dynamic func updateProximity(notification: NSNotification) {
         let userInfo = notification.userInfo!
-        let beaconId = userInfo[Key.beaconId] as! BeaconId
+        let beaconId = userInfo[DictionaryKey.beaconId] as! BeaconId
         
-        let uuid = beaconId[Key.uuid]!
-        let major = beaconId[Key.major]!
-        let minor = beaconId[Key.minor]!
+        let uuid = beaconId.uuid!
+        let major = beaconId.major!
+        let minor = beaconId.minor!
         let predicate = NSPredicate(format: "uuid == %@ && major == %@ && minor == %@", uuid, major, minor)
         
         let kids = self.persistenceController.objects("Kid", predicate: predicate, sorters: nil)
@@ -59,7 +59,7 @@ class DataController: NSObject {
             Notifier.sendNewKid(beaconId)
         case 1:
             let kid = kids.first as! Kid
-            kid.proximityString = userInfo[Key.proximityString] as! String
+            kid.proximityString = userInfo[DictionaryKey.proximityString] as! String
         default:
             fatalError("Error - multiple Kids found for beacon ID: \(beaconId)")
         }
@@ -69,12 +69,12 @@ class DataController: NSObject {
     
     dynamic func addKid(notification: NSNotification) {
         let userInfo = notification.userInfo!
-        let beaconId = userInfo[Key.beaconId] as! BeaconId
-        let major = Int32(beaconId[Key.major] as! Int)
-        let minor = Int32(beaconId[Key.minor] as! Int)
-        let uuid = beaconId[Key.uuid] as! String
-        let name = userInfo[Key.name] as! String
-        let tracking = userInfo[Key.tracking] as! Bool
+        let beaconId = userInfo[DictionaryKey.beaconId] as! BeaconId
+        let major = Int32(beaconId.major as! Int)
+        let minor = Int32(beaconId.minor as! Int)
+        let uuid = beaconId.uuid!
+        let name = userInfo[DictionaryKey.name] as! String
+        let tracking = userInfo[DictionaryKey.tracking] as! Bool
         
         self.createKid(name, uuid: uuid, major: major, minor: minor, tracking: tracking, proximity: .Immediate)
     }

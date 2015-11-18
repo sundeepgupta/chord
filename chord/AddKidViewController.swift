@@ -18,9 +18,9 @@ class AddKidViewController: UIViewController, UITextFieldDelegate {
         
         
         let userInfo: [String: AnyObject] = [
-            Key.beaconId: self.beaconId,
-            Key.name: self.name.text!,
-            Key.tracking: self.trackingSetting.on
+            DictionaryKey.beaconId: self.beaconId,
+            DictionaryKey.name: self.name.text!,
+            DictionaryKey.tracking: self.trackingSetting.on
         ]
         NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.newKidWasAdded, object: nil, userInfo: userInfo)
         self.dismiss()

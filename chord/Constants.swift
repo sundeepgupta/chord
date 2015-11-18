@@ -3,7 +3,7 @@ struct NotificationName {
     static let newKidWasAdded = "newKidWasAdded"
 }
 
-struct Key {
+struct DictionaryKey {
     static let beaconId = "beaconId"
     static let proximityString = "proximityString"
     static let name = "name"
