@@ -13,7 +13,9 @@ class RadarResponder: NSObject, CLLocationManagerDelegate {
         
     // MARK: - CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
-        manager.requestStateForRegion(region)
+        manager.performSelector("requestStateForRegion:", withObject: region, afterDelay: 0.1)
+        // https://www.cocoanetics.com/2014/05/radar-monitoring-clregion-immediately-after-removing-one-fails/
+        
         print("Started monitoring.")
     }
     

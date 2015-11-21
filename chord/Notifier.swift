@@ -5,6 +5,7 @@ struct Notifier {
         let notification = UILocalNotification()
         notification.alertBody = "New Kid Detected"
         notification.userInfo = [DictionaryKey.beaconId: beaconId]
+        notification.soundName = UILocalNotificationDefaultSoundName
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
 }
