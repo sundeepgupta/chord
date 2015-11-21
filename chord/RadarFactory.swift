@@ -16,7 +16,18 @@ struct RadarFactory {
             let userInfo: [String: AnyObject] = ["beaconId": beaconId, "proximityString": proximity.toString()]
             NSNotificationCenter.defaultCenter().postNotificationName(NotificationName.proximityDidChange, object: nil, userInfo: userInfo)
         }
-        let radar = Radar(locationManager: locationManager, region: region, responder: responder, proximityReaction: proximityReaction)
+        
+        let shouldSkipProbation = { (proximity: Proximity) -> Bool in
+            return proximity == .InRange(.Immediate)
+        }
+        
+        let radar = Radar(
+            locationManager: locationManager,
+            region: region,
+            responder: responder,
+            proximityReaction: proximityReaction,
+            shouldSkipProbation: shouldSkipProbation
+        )
         
         locationManager.delegate = responder
         responder.delegate = radar

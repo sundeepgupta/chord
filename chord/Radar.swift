@@ -7,14 +7,22 @@ class Radar: NSObject, RadarResponderDelegate {
     private let responder: RadarResponder
     private var activities: [BeaconActivity] = []
     private let proximityReaction: (BeaconId, Proximity) -> ()
+    private let shouldSkipProbation: Proximity -> Bool
     private let proximityDelay: NSTimeInterval = 3
     
     
-    init(locationManager: CLLocationManager, region: CLBeaconRegion, responder: RadarResponder, proximityReaction: (BeaconId, Proximity) -> ()) {
-        self.locationManager = locationManager
-        self.region = region
-        self.responder = responder
-        self.proximityReaction = proximityReaction
+    init(
+        locationManager: CLLocationManager,
+        region: CLBeaconRegion,
+        responder: RadarResponder,
+        proximityReaction: (BeaconId, Proximity) -> (),
+        shouldSkipProbation: Proximity -> Bool
+        ) {
+            self.locationManager = locationManager
+            self.region = region
+            self.responder = responder
+            self.proximityReaction = proximityReaction
+            self.shouldSkipProbation = shouldSkipProbation
     }
     
     func start() {
@@ -74,7 +82,13 @@ class Radar: NSObject, RadarResponderDelegate {
             if alreadyTracking {
                 self.activities[i].update(beacon.proximity)
             } else {
-                let activity = BeaconActivity(beaconId: beacon.toBeaconId(), proximity: beacon.proximity, probationPeriod: self.proximityDelay, proximityReaction: self.proximityReaction)
+                let activity = BeaconActivity(
+                    beaconId: beacon.toBeaconId(),
+                    proximity: beacon.proximity,
+                    probationPeriod: self.proximityDelay,
+                    proximityReaction: self.proximityReaction,
+                    shouldSkipProbation: self.shouldSkipProbation
+                )
                 self.activities.append(activity)
             }
         }

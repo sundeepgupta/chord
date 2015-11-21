@@ -5,6 +5,7 @@ class BeaconActivity: NSObject {
     private var timer = NSTimer()
     private let probationPeriod: NSTimeInterval
     private let reaction: (BeaconId, Proximity) -> ()
+    private let shouldSkipProbation: Proximity -> Bool
     private(set) var proximity = Proximity.Pending {
         didSet {
             self.reaction(self.beaconId, self.proximity)
@@ -14,23 +15,20 @@ class BeaconActivity: NSObject {
         didSet {
             guard oldValue != self.candidate else { return }
             
-            if self.candidate == self.proximity {
-                self.timer.invalidate()
-            } else {
-                self.startTimer(self.candidate)
-            }
+            self.candidate == self.proximity ? self.timer.invalidate() : self.processDifferentCandidate()
         }
     }
 
     
-    init(beaconId: BeaconId, proximity: CLProximity, probationPeriod: NSTimeInterval, proximityReaction: (BeaconId, Proximity) -> ()) {
+    init(beaconId: BeaconId, proximity: CLProximity, probationPeriod: NSTimeInterval, proximityReaction: (BeaconId, Proximity) -> (), shouldSkipProbation: Proximity -> Bool) {
         self.beaconId = beaconId
         self.reaction = proximityReaction
         self.candidate = .InRange(proximity)
         self.probationPeriod = probationPeriod
+        self.shouldSkipProbation = shouldSkipProbation
         super.init()
         
-        self.startTimer(self.candidate) // Property observers not called during init.
+        self.acceptCandidate()
     }
     
     func update(beaconProximity: CLProximity?) {
@@ -43,15 +41,16 @@ class BeaconActivity: NSObject {
     
     
     // MARK:- Private
-    private func startTimer(proximity: Proximity) {
+    private func startTimer() {
         self.timer.invalidate()
-        
-        let userInfo = proximity.toString()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(self.probationPeriod, target: self, selector: "acceptCandidate:", userInfo: userInfo, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(self.probationPeriod, target: self, selector: "acceptCandidate", userInfo: nil, repeats: false)
     }
     
-    dynamic func acceptCandidate(timer: NSTimer) {
-        let proximityString = timer.userInfo as! String
-        self.proximity = proximityString.toProximity()
+    dynamic func acceptCandidate() {
+        self.proximity = self.candidate
+    }
+    
+    private func processDifferentCandidate() {
+        self.shouldSkipProbation(self.candidate) ? self.acceptCandidate() : self.startTimer()
     }
 }
