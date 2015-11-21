@@ -55,6 +55,8 @@ struct ProximityStrings {
     static let immediate = "Immediate"
     static let near = "Near"
     static let unknown = "Unknown"
+    
+    
 }
 
 

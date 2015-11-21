@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272AC5751C00F29E004D8FEF /* ProximityObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272AC5741C00F29E004D8FEF /* ProximityObserver.swift */; };
 		2746B02B1BA52B5A00B4D364 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */; };
 		2746B02D1BA52B5A00B4D364 /* KidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */; };
 		2746B0301BA52B5A00B4D364 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2746B02E1BA52B5A00B4D364 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272AC5741C00F29E004D8FEF /* ProximityObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximityObserver.swift; sourceTree = "<group>"; };
 		2746B0271BA52B5A00B4D364 /* chord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2746B02A1BA52B5A00B4D364 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KidsViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				27783BFD1BD4498900C26D37 /* KidCell.swift */,
 				2746B02C1BA52B5A00B4D364 /* KidsViewController.swift */,
 				27783C021BD462BE00C26D37 /* KidViewController.swift */,
+				272AC5741C00F29E004D8FEF /* ProximityObserver.swift */,
 			);
 			name = Kids;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				277A463B1BD556F1006A44A0 /* PersistenceController.swift in Sources */,
 				27A1CE9F1BEC4CB700A6879C /* AddKidViewController.swift in Sources */,
 				278397BC1BDD0F1B00575C57 /* Proximity.swift in Sources */,
+				272AC5751C00F29E004D8FEF /* ProximityObserver.swift in Sources */,
 				27ADB6C31BD4845E0062B776 /* Chord.xcdatamodeld in Sources */,
 				2746B0591BA52BE600B4D364 /* Radar.swift in Sources */,
 				27A1CEA11BEC4E4800A6879C /* NavigationController.swift in Sources */,

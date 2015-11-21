@@ -4,9 +4,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var dataController: DataController!
-    var radar: Radar!
-    var navigationController: NavigationController!
+    private var dataController: DataController!
+    private var radar: Radar!
+    private var navigationController: NavigationController!
+    private var proximityObserver: ProximityObserver!
 
     
     //MARK:- UIApplicationDelegate
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupRadar()
         self.setupDataController()
         self.setupKidsViewController()
+        self.setupProximityObserver()
         self.requestNotificationPermissions(application: application)
         
         if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
@@ -56,6 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupNavigationController() {
         self.navigationController = self.window!.rootViewController as! NavigationController
+    }
+    
+    private func setupProximityObserver() {
+        self.proximityObserver = ProximityObserver(dataController: self.dataController)
     }
     
     private func mainViewController() -> UIViewController {

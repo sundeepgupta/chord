@@ -8,7 +8,7 @@ class Radar: NSObject, RadarResponderDelegate {
     private var activities: [BeaconActivity] = []
     private let proximityReaction: (BeaconId, Proximity) -> ()
     private let shouldSkipProbation: Proximity -> Bool
-    private let proximityDelay: NSTimeInterval = 3
+    private let proximityDelay: NSTimeInterval = 2
     
     
     init(
