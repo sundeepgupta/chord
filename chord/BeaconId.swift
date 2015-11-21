@@ -1,22 +1,21 @@
 typealias BeaconId = [String: NSObject]
 
-
 extension Dictionary where Key: StringLiteralConvertible, Value: NSObject {
-    var uuid: String? {
+    var uuid: String {
         get {
-            return self["uuid"] as? String
+            return self["uuid"] as! String
         }
     }
     
-    var major: NSNumber? {
+    var major: NSNumber {
         get {
-            return self["major"] as? NSNumber
+            return self["major"] as! NSNumber
         }
     }
     
-    var minor: NSNumber? {
+    var minor: NSNumber {
         get {
-            return self["minor"] as? NSNumber
+            return self["minor"] as! NSNumber
         }
     }
 }
@@ -26,10 +25,13 @@ extension Dictionary where Key: StringLiteralConvertible, Value: NSObject {
 import CoreLocation
 extension CLBeacon {
     func toBeaconId() -> BeaconId {
-        return [DictionaryKey.uuid: self.proximityUUID.UUIDString, DictionaryKey.major: self.major, DictionaryKey.minor: self.minor]
+        return [
+            DictionaryKey.uuid: self.proximityUUID.UUIDString,
+            DictionaryKey.major: self.major,
+            DictionaryKey.minor: self.minor
+        ]
     }
 }
-
 
 
 

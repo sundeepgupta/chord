@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupRadar()
         self.setupDataController()
         self.setupKidsViewController()
+        self.requestNotificationPermissions(application: application)
         
         return true
     }
@@ -58,6 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func mainViewController() -> UIViewController {
         return self.navigationController.viewControllers.first!
+    }
+    
+    private func requestNotificationPermissions(application application: UIApplication) {
+        let types:UIUserNotificationType = [.Sound, .Alert]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
     }
 }
 

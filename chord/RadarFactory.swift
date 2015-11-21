@@ -7,6 +7,10 @@ struct RadarFactory {
         guard let region = self.regionWithUuid(uuid) else { return nil }
         
         let locationManager = CLLocationManager()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
         let responder = RadarResponder()
         let proximityReaction = { (beaconId: BeaconId, proximity: Proximity) in
             let userInfo: [String: AnyObject] = ["beaconId": beaconId, "proximityString": proximity.toString()]

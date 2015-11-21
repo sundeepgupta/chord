@@ -37,7 +37,7 @@ class PersistenceStack {
     }
     
     private func setupContext() {
-        self.context = NSManagedObjectContext()
+        self.context = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         self.context.persistentStoreCoordinator = self.storeCoordinator
     }
     

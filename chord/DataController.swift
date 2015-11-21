@@ -11,14 +11,14 @@ class DataController: NSObject {
         self.addObservers()
     }
     
-    func createKid(name: String, uuid: String, major: Int32, minor: Int32, tracking: Bool, proximity: CLProximity) -> Kid {
+    func createKid(name name: String, beaconId: BeaconId, tracking: Bool, proximityString: String) -> Kid {
         let kid = self.persistenceController.create("Kid") as! Kid
         kid.name = name
-        kid.uuid = uuid
-        kid.major = major
-        kid.minor = minor
+        kid.uuid = beaconId.uuid
+        kid.major = Int32(beaconId.major as Int)
+        kid.minor = Int32(beaconId.minor as Int)
         kid.tracking = tracking
-        kid.proximityString = proximity.toString()
+        kid.proximityString = proximityString
         
         return kid
     }
@@ -45,21 +45,16 @@ class DataController: NSObject {
     // MARK:- Observers
     dynamic func updateProximity(notification: NSNotification) {
         let userInfo = notification.userInfo!
+        let proximityString = userInfo[DictionaryKey.proximityString] as! String
         let beaconId = userInfo[DictionaryKey.beaconId] as! BeaconId
-        
-        let uuid = beaconId.uuid!
-        let major = beaconId.major!
-        let minor = beaconId.minor!
-        let predicate = NSPredicate(format: "uuid == %@ && major == %@ && minor == %@", uuid, major, minor)
-        
-        let kids = self.persistenceController.objects("Kid", predicate: predicate, sorters: nil)
+        let kids = self.kidsForBeaconId(beaconId)
         
         switch kids.count {
         case 0:
-            Notifier.sendNewKid(beaconId)
+            self.handleNewBeaconId(beaconId, proximityString: proximityString)
         case 1:
-            let kid = kids.first as! Kid
-            kid.proximityString = userInfo[DictionaryKey.proximityString] as! String
+            let kid = kids.first!
+            kid.proximityString = proximityString
         default:
             fatalError("Error - multiple Kids found for beacon ID: \(beaconId)")
         }
@@ -70,19 +65,29 @@ class DataController: NSObject {
     dynamic func addKid(notification: NSNotification) {
         let userInfo = notification.userInfo!
         let beaconId = userInfo[DictionaryKey.beaconId] as! BeaconId
-        let major = Int32(beaconId.major as! Int)
-        let minor = Int32(beaconId.minor as! Int)
-        let uuid = beaconId.uuid!
         let name = userInfo[DictionaryKey.name] as! String
         let tracking = userInfo[DictionaryKey.tracking] as! Bool
         
-        self.createKid(name, uuid: uuid, major: major, minor: minor, tracking: tracking, proximity: .Immediate)
+        self.createKid(name: name, beaconId: beaconId, tracking: tracking, proximityString: ProximityStrings.pending)
     }
+    
+
     
     
     // MARK:- Private
     private func addObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateProximity:", name: NotificationName.proximityDidChange, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addKid:", name: NotificationName.newKidWasAdded, object: nil)
+    }
+    
+    private func kidsForBeaconId(beaconId: BeaconId) -> [Kid] {
+        let predicate = NSPredicate(format: "uuid == %@ && major == %@ && minor == %@", beaconId.uuid, beaconId.major, beaconId.minor)
+        return self.persistenceController.objects("Kid", predicate: predicate, sorters: nil) as! [Kid]
+    }
+    
+    private func handleNewBeaconId(beaconId: BeaconId, proximityString: String) {
+        if proximityString == ProximityStrings.immediate {
+            Notifier.sendNewKid(beaconId)
+        }
     }
 }

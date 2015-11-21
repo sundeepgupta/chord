@@ -20,10 +20,14 @@ class Radar: NSObject, RadarResponderDelegate {
     func start() {
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startMonitoringForRegion(self.region)
+        self.locationManager.startMonitoringSignificantLocationChanges()
+        self.locationManager.startUpdatingLocation()
     }
     
     func stop() {
         self.locationManager.stopMonitoringForRegion(self.region)
+        self.locationManager.stopMonitoringSignificantLocationChanges()
+        self.locationManager.stopUpdatingLocation()
     }
     
     
@@ -77,19 +81,10 @@ class Radar: NSObject, RadarResponderDelegate {
     }
     
     private func activityIds() -> [BeaconId] {
-        var ids: [BeaconId] = []
-        for activity in self.activities {
-            ids.append(activity.beaconId)
-        }
-        
-        // Using map() here crashes with bad access.
-        
-        return ids
+        return self.activities.map { $0.beaconId }
     }
     
     private func beaconIds(beacons beacons: [CLBeacon]) -> [BeaconId] {
-        return beacons.map { (beacon) -> BeaconId in
-            return beacon.toBeaconId()
-        }
+        return beacons.map { $0.toBeaconId() }
     }
 }
