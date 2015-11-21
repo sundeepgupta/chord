@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupKidsViewController()
         self.requestNotificationPermissions(application: application)
         
+        if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+            self.handleNotification(notification)
+        }
+        
         return true
     }
     
@@ -25,10 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        let beaconId = notification.userInfo![DictionaryKey.beaconId] as! [String: NSObject]
-        // Will need to check here or eventually have a NotifcationTriage object
-        
-        self.navigationController.addKid(beaconId)
+        self.handleNotification(notification)
     }
     
     // MARK: - Private
@@ -65,6 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let types:UIUserNotificationType = [.Sound, .Alert]
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
+    }
+    
+    private func handleNotification(notification: UILocalNotification) {
+        let beaconId = notification.userInfo![DictionaryKey.beaconId] as! [String: NSObject]
+        self.navigationController.addKid(beaconId)
     }
 }
 
