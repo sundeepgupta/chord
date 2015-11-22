@@ -1,6 +1,12 @@
 import UIKit
 
-struct Notifier {
+struct UserNotifier {
+    static func requestNotificationPermissions(application application: UIApplication) {
+        let types:UIUserNotificationType = [.Sound, .Alert]
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
+    }
+    
     static func newKid(beaconId: BeaconId) {
         self.sendNotification("New Kid Detected", userInfo: [DictionaryKey.beaconId: beaconId])
     }

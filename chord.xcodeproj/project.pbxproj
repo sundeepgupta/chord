@@ -28,6 +28,7 @@
 		277A463F1BD5C7CD006A44A0 /* Kid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277A463E1BD5C7CD006A44A0 /* Kid.swift */; };
 		278397BC1BDD0F1B00575C57 /* Proximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278397BB1BDD0F1B00575C57 /* Proximity.swift */; };
 		278397BE1BDD29CF00575C57 /* BeaconActivity_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278397BD1BDD29CF00575C57 /* BeaconActivity_Tests.swift */; };
+		278B98AC1C01437300998C33 /* UserNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278B98AB1C01437300998C33 /* UserNotificationHandler.swift */; };
 		279DAEB31BDC51E100DF355D /* BeaconId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DAEB21BDC51E100DF355D /* BeaconId.swift */; };
 		279DAEB51BDC53C000DF355D /* BeaconActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DAEB41BDC53C000DF355D /* BeaconActivity.swift */; };
 		27A1CE9F1BEC4CB700A6879C /* AddKidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A1CE9E1BEC4CB700A6879C /* AddKidViewController.swift */; };
@@ -76,6 +77,7 @@
 		277A463E1BD5C7CD006A44A0 /* Kid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kid.swift; sourceTree = "<group>"; };
 		278397BB1BDD0F1B00575C57 /* Proximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proximity.swift; sourceTree = "<group>"; };
 		278397BD1BDD29CF00575C57 /* BeaconActivity_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconActivity_Tests.swift; sourceTree = "<group>"; };
+		278B98AB1C01437300998C33 /* UserNotificationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationHandler.swift; sourceTree = "<group>"; };
 		279DAEB21BDC51E100DF355D /* BeaconId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconId.swift; sourceTree = "<group>"; };
 		279DAEB41BDC53C000DF355D /* BeaconActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconActivity.swift; sourceTree = "<group>"; };
 		27A1CE9E1BEC4CB700A6879C /* AddKidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKidViewController.swift; sourceTree = "<group>"; };
@@ -130,11 +132,11 @@
 		2746B0291BA52B5A00B4D364 /* chord */ = {
 			isa = PBXGroup;
 			children = (
+				278B98AA1C01434600998C33 /* UserNotifications */,
 				27ADB6BD1BD483760062B776 /* Core */,
 				27783BFC1BD4497500C26D37 /* Kids */,
 				274E80D61BB8BF7A0091CC80 /* Radar */,
 				27ADB6BC1BD483440062B776 /* Resources */,
-				27A1CEA21BEEDF6000A6879C /* Notifier.swift */,
 			);
 			path = chord;
 			sourceTree = "<group>";
@@ -191,6 +193,15 @@
 				27783C001BD451CE00C26D37 /* KidCell_Tests.swift */,
 			);
 			name = Kids;
+			sourceTree = "<group>";
+		};
+		278B98AA1C01434600998C33 /* UserNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				27A1CEA21BEEDF6000A6879C /* Notifier.swift */,
+				278B98AB1C01437300998C33 /* UserNotificationHandler.swift */,
+			);
+			name = UserNotifications;
 			sourceTree = "<group>";
 		};
 		27A1CE9D1BEC4C9F00A6879C /* Persistence */ = {
@@ -345,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278B98AC1C01437300998C33 /* UserNotificationHandler.swift in Sources */,
 				2746B02D1BA52B5A00B4D364 /* KidsViewController.swift in Sources */,
 				277A463D1BD5C5EC006A44A0 /* DataController.swift in Sources */,
 				27783C031BD462BE00C26D37 /* KidViewController.swift in Sources */,

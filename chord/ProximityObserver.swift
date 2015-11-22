@@ -48,7 +48,7 @@ class ProximityObserver: NSObject {
     
     private func handleNewBeaconId(beaconId: BeaconId, proximityString: String) {
         if proximityString == ProximityStrings.immediate {
-            Notifier.newKid(beaconId)
+            UserNotifier.newKid(beaconId)
         }
     }
     
@@ -56,7 +56,7 @@ class ProximityObserver: NSObject {
         kid.proximityString = proximityString
         
         if self.warningProximities.contains(proximityString) {
-            Notifier.findKid(kid)
+            UserNotifier.findKid(kid)
         }
     }
 }

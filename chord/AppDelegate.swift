@@ -8,6 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var radar: Radar!
     private var navigationController: NavigationController!
     private var proximityObserver: ProximityObserver!
+    private var userNotificationHandler: UserNotificationHandler!
 
     
     //MARK:- UIApplicationDelegate
@@ -17,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupDataController()
         self.setupKidsViewController()
         self.setupProximityObserver()
-        self.requestNotificationPermissions(application: application)
+        self.setupUserNotificationHandler()
+        
+        UserNotifier.requestNotificationPermissions(application: application)
         
         if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
-            self.handleNotification(notification)
+            self.userNotificationHandler.handleNotification(notification)
         }
         
         return true
@@ -31,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        self.handleNotification(notification)
+        self.userNotificationHandler.handleNotification(notification)
     }
     
     // MARK: - Private
@@ -64,19 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.proximityObserver = ProximityObserver(dataController: self.dataController)
     }
     
+    private func setupUserNotificationHandler() {
+        self.userNotificationHandler = UserNotificationHandler(navigationController: self.navigationController)
+    }
+    
     private func mainViewController() -> UIViewController {
         return self.navigationController.viewControllers.first!
-    }
-    
-    private func requestNotificationPermissions(application application: UIApplication) {
-        let types:UIUserNotificationType = [.Sound, .Alert]
-        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
-        application.registerUserNotificationSettings(settings)
-    }
-    
-    private func handleNotification(notification: UILocalNotification) {
-        let beaconId = notification.userInfo![DictionaryKey.beaconId] as! [String: NSObject]
-        self.navigationController.addKid(beaconId)
     }
 }
 
