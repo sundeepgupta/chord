@@ -12,4 +12,8 @@ class NavigationController: UINavigationController {
         addKidViewController.beaconId = beaconId
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
+    
+    func showKids() {
+        self.popToRootViewControllerAnimated(true)
+    }
 }

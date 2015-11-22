@@ -1,18 +1,27 @@
 import UIKit
 
 struct UserNotifier {
-    static func requestNotificationPermissions(application application: UIApplication) {
+    static func requestPermissions(application application: UIApplication) {
         let types:UIUserNotificationType = [.Sound, .Alert]
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
     }
     
     static func newKid(beaconId: BeaconId) {
-        self.sendNotification("New Kid Detected", userInfo: [DictionaryKey.beaconId: beaconId])
+        let userInfo: [NSObject: AnyObject] = [
+            DictionaryKey.beaconId: beaconId,
+            DictionaryKey.userNotificationType: UserNotificationType.NewKid.rawValue
+        ]
+        
+        self.sendNotification("New Kid Detected", userInfo: userInfo)
     }
     
     static func findKid(kid: Kid) {
-        self.sendNotification("Find \(kid.name)!", userInfo: nil)
+        let userInfo: [NSObject: AnyObject] = [
+            DictionaryKey.userNotificationType: UserNotificationType.FindKid.rawValue
+        ]
+        
+        self.sendNotification("Find \(kid.name)!", userInfo: userInfo)
     }
     
     private static func sendNotification(body: String, userInfo: [NSObject: AnyObject]?) {
@@ -25,3 +34,7 @@ struct UserNotifier {
 }
 
 
+enum UserNotificationType: Int {
+    case NewKid
+    case FindKid
+}

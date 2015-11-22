@@ -11,6 +11,7 @@ struct DictionaryKey {
     static let uuid = "uuid"
     static let major = "major"
     static let minor = "minor"
+    static let userNotificationType = "userNotificationType"
 }
 
 struct Global {

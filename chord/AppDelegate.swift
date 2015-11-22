@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setupProximityObserver()
         self.setupUserNotificationHandler()
         
-        UserNotifier.requestNotificationPermissions(application: application)
+        UserNotifier.requestPermissions(application: application)
         
         if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
             self.userNotificationHandler.handleNotification(notification)
